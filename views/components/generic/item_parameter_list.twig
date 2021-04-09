@@ -1,0 +1,63 @@
+<div class="object_parameters_price_container">
+    <p class="object_parameters_item_price"> Средний чек <span class="price_highlight"> от {{item.restaurant_price}} руб./чел</span></p>
+</div>
+<div class="object_parameters_list_top">
+    <div class="item_container">
+        <div class="img_container">
+            <img class="info_tab_img" src="/img/topbanket/rooms.svg" >
+        </div>
+        <div class="object_parameters_item_rooms"> 
+            {% for room in item.rooms %}
+                <p class="object_parameters_item">{{room.name}} - {{room.capacity}} Гостей </p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="item_container">
+        <div class="img_container">
+            <img class="info_tab_img" src="/img/topbanket/Kitchen1.svg">
+        </div>
+        <span class="object_parameters_item">Кухня: {{item.restaurant_cuisine}}</span>
+    </div>
+    <div class="item_container">
+        {% if item.restaurant_parking %}
+            <div class="img_container">
+                <img class="info_tab_img" src="/img/topbanket/parking1.svg">
+            </div>
+            <span class="object_parameters_item">Паркинг: {{item.restaurant_parking}}</span>
+        {% endif %}
+    </div>
+    <div class="item_container">
+        {% if item.restaurant_own_alcohol %}
+            <div class="img_container">
+                <img class="info_tab_img" src="/img/topbanket/alco1.svg">
+            </div>
+            <span class="object_parameters_item">Свой алкоголь: {{item.restaurant_own_alcohol}}</span>
+        {% endif %}
+    </div>
+</div>
+<div class="object_parameters_list">
+    <div class="object_parameter">
+        <span class="object_parameters_title">Особенности:</span>
+        <div class="object_parameters_items">
+            {% set services = item.restaurant_special|split(',') %}
+            {% for service in services %}
+                <span class="object_parameters_item">{{service}},</span>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="object_parameter">
+        <span class="object_parameters_title">Сервисы за отдельную плату:</span>
+        <div class="object_parameters_items">
+            {% set services = item.restaurant_extra_services|split(',') %}
+            {% for service in services %}
+                <span class="object_parameters_item">{{service}},</span>
+            {% endfor %}
+        </div>
+    </div>    
+</div>
+
+<div class="test">
+    <p class="object_parameters_title">
+    
+    </p>
+</div>

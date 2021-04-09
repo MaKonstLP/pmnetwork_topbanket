@@ -1,0 +1,199 @@
+.form_wrapper.callback2 {
+  border-radius: 0px;
+  display: flex;
+  position: relative;
+  width: 586px;
+  height: 490px;
+  padding: 41px 141px;
+  margin-left: 585px;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: #26C5BD;
+  color: white;
+
+  @include for-lowdesc{
+    width: 466px;
+    padding: 45px 80px;
+    margin-left: 464px;
+
+  }
+  @include for-pad{
+    width: 100%;
+    padding:  40px 186px 40px 196px;
+    height: 472px;
+    margin: 0;
+  }
+
+  @include for-mobile{
+    width: 100%;
+    height: 100%;
+    padding: 28px 16px 29px 15px;
+    margin: 0;
+  }
+
+  .form_title2{
+    text-align: center;
+    display: flex;
+    flex-flow: column nowrap;
+    @include for-lowdesc{
+      margin-top:-3px;
+    }
+    @include for-pad{
+      padding: 0 35px;
+    }
+    div{
+      font-size: 27px;
+      font-weight: 700;
+      line-height: 32px;
+      @include for-pad{
+        margin-right: 17px;
+        font-size: 20px;
+        line-height: 24px;
+      }
+      @include for-mobile{
+        font-size: 18px;
+        line-height: 22px;
+      }
+    }  
+    .form_title_main{
+      font-size: 28px;
+      line-height: 32px;
+      margin: 0;
+      text-align: center;
+    }    
+    .form_title_main{
+      color: #000000;
+    }
+    .form_title_desc{
+      color: #333333;
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+
+  .form_block{
+    margin-top: 35px;
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @include for-lowdesc{
+      margin-left: 15px;
+    }
+    @include for-mobile{
+      width: 100%;
+      align-items: center;
+      margin-top: 25px;
+    }
+
+    .comment_wrapper{
+      textarea{
+        text-align: center;
+        height: 48px;
+        width: 300px;
+        border-bottom: 1px solid rgba(255,255,255,0.5);
+        @include for-mobile{
+          height: 45px;
+          width: 250px;
+        }
+      }
+      textarea::-webkit-input-placeholder { color: rgba(255,255,255,0.5); }
+      textarea::-moz-placeholder { color: rgba(255,255,255,0.5); }
+      @include for-mobile{
+        margin-top: 5px;
+      }
+    }
+    .form_inputs2 {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content:center;
+      .input_wrapper{
+        width: 100%;
+        margin-bottom: 35px;
+
+        input{
+          text-align: center;
+          border: none;
+          border-bottom: 1px solid rgba(255,255,255,0.5);
+          height: 19px;
+          width: 300px;
+          @include for-mobile{
+            width: 250px;
+          }
+        }
+        input::-webkit-input-placeholder { color: rgba(255,255,255,0.5); }
+        input::-moz-placeholder { color: rgba(255,255,255,0.5); }
+        textarea{
+          background: white;
+          color: white;
+          width: 435px;
+          height: 30px;
+          resize: none;
+          border-radius: 2px;
+
+          @include for-notdesc {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+    .form_submit_callback{
+      margin-top: 17px;
+      display: flex;
+      flex-direction:column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .checkbox_pseudo{
+
+        
+        &:before{
+          border: solid 1px white;
+        }
+        &:after{
+          background-image: url(/img/topbanket/white_galochka.svg);
+        }
+      }
+      ._link{
+        color: white;
+        border-color: white;
+        &:hover{
+          border: none;
+        }
+      }
+
+      @include for-mobile{
+        margin-top: 15px;
+        flex-flow: column nowrap;
+      }
+
+      .Red{
+        text-transform: uppercase;
+        margin-bottom: 15px;
+        font-weight: 700;
+        font-size: 14px;
+        padding: 14px 92px;
+        line-height: 17px;
+        color: black;
+        background-color: white;
+        @include for-mobile{
+          padding: 15px 80px 14px;
+          text-transform: uppercase;
+          font-size: 12px;
+        }
+
+      }
+      .Red:Hover{
+        color:rgba(38, 197, 189, 1);
+      }
+      .form_policy{
+        margin-left:7px;
+        @include for-mobile{
+          font-size: 11px;
+        }
+      }
+    }
+
+  }
+}

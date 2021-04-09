@@ -1,0 +1,102 @@
+<div data-page-type="index">
+
+	<div class="main_top">
+        <h1>{{seo.h1}}</h1>
+        <div class="main_top_desc">
+            {{seo.h1_pag | raw}}
+        </div>                    
+    </div>
+
+	<div class="content_block filter_wrapper">
+		{{ filter | raw }}
+	</div>
+
+	<div class="popular_places">
+			<div class="popular_places_title">
+				<h3>Самые популярные места для банкетов в Москве</h3>
+			</div>
+			<div class="popular_places_ref_wrapper">
+						<a class="pp" href="" style="background: url(/img/topbanket/pp1.png); background-size: cover">
+							<div class="pp_desc">Самые большие залы</div>
+						</a >
+						<a class="pp" href="" style="background: url(/img/topbanket/pp2.png); background-size: cover">
+							<div class="pp_desc" >
+								День рождения на 20 человек
+							</div>
+						</a >	
+						<a class="pp" href="" style="background: url(/img/topbanket/pp3.png); background-size: cover">
+							<div class="pp_desc">
+								Камерная свадьба на 15 персон
+							</div>
+						</a >
+						<a class="pp" href="" style="background: url(/img/topbanket/pp4.png); background-size: cover">
+							<div class="pp_desc">
+								Загородные рестораны
+							</div>
+						</a >
+						<a class="pp" href="" style="background: url(/img/topbanket/pp5.png); background-size: cover">
+							<div class="pp_desc">
+								Шатры
+							</div>
+						</a >
+						<a class="pp" href="" style="background: url(/img/topbanket/pp6.png); background-size: cover">
+							<div class="pp_desc">
+								Усадьбы
+							</div>
+						</a >	
+						<a class="pp" href="" style="background: url(/img/topbanket/pp7.png); background-size: cover">
+							<div class="pp_desc">
+								Рестораны в черте города
+							</div>
+						</a >
+						<a class="pp" href="" style="background: url(/img/topbanket/pp8.png); background-size: cover">
+							<div class="pp_desc">
+								Рестораны на крыше 
+							</div>
+						</a >	
+			</div>	
+	</div>
+	<div class="DO_listing">
+			<div class="DO_listing_title">
+				<h2>
+					Лучшие банкетные залы
+				</h2>
+			</div>
+			<div class="DO_listing_desc">
+				Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мертоприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+			</div>
+			<div class="DO_listing_list">
+				<div class="best_offer_slider" data-widget-main-wrapper>
+
+					{{ mainWidget | raw }}
+
+				</div>
+			</div>
+			<div class="btn_container">
+				<div class="DO_listing_load_btn">
+					Подгрузить ещё
+				</div>
+			</div>	
+	</div>
+	<div class="after_listing">
+		<div class="after_listing_text">
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+		</div>
+		<div class="after_listing_text2">
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+		</div>
+	</div>
+	<div class="full_btn_container">
+		<div class="load_full_btn">
+			Показать полностью
+		</div>	
+	</div>
+	
+
+	<div class="content_block form_callback_wrapper">
+		{{ this.render('//components/generic/form_callback2.twig') | raw }}
+	</div>
+	<div class="state_wrapper">
+		{{ this.render('//components/generic/State_block.twig') | raw}}
+	</div>
+</div>

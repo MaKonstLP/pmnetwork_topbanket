@@ -1,0 +1,29 @@
+<div class="title">
+	<div class="item_title_desc">
+		{% for type in item.restaurant_types %}
+			<span class="desc_item"> {{ type.name }}</span>
+		{% endfor %}
+    </div>
+	<h1>{{seo.h1}}</h1>
+
+	{#<div class="title_desc"><p>{{seo.desc}}</p></div>#}
+	<div class="title_address">
+		<span data-title-address>{{seo.address}}</span>
+		<div>
+			<a href="">Посмотреть на карте</a>
+		</div>	
+	</div>	
+	<div class="item_gift-for-early-reservation"> за бронирование</div>
+</div>
+<div class="book_container">
+	<div class="object_book">
+	   <p class="object_book_phone">
+		   <span class="object_fake_phone">+7 902
+		   	<span class="object_fake_phone_snowflakes">xxx xx-xx
+		   	</span>
+			</span>
+		   <a href="tel:{{item.restaurant_phone}}" class="object_real_phone">{{item.restaurant_phone}}</a>
+	   </p>
+		<div class="show_number" data-action="show_phone">Показать номер</div>                          
+	</div>                
+</div>

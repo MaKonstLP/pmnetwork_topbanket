@@ -1,0 +1,68 @@
+.state_block{
+    margin: -5px auto 0;
+    width:1170px;
+    display: none;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    .state{
+        display: block;
+        width: 270px;
+        height: 270px;
+        .state_back{
+            position: absolute;
+        }
+        .state_contents{
+            
+            justify-content: space-between;
+            display: flex;
+            flex-flow: column wrap;
+            background-color: white;
+            text-align: center;
+            padding: 30px 40px;
+            margin: 30px;
+            width: 210px;
+            height: 210px;
+            .state_date{
+                font-weight: 400;
+                font-size:10px;
+                text-transform: uppercase;
+            }
+            .state_text{
+                font-size:16px; 
+            }
+        }
+        .state_first{
+            background-color: rgba(35, 35, 35, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 270px;
+            height: 270px;
+            padding: 42px 27px;
+            .state_first_uppertitle{
+                color: rgba(231, 0, 76, 1);
+                font-weight: 600;
+                font-size: 10px;
+                line-height: 12px;
+                text-transform: uppercase;
+            }
+            .state_firts_title{
+                margin-top:-10px;
+                color: rgba(255, 255, 255, 1);
+                font-weight: 600;
+                font-size: 26px;
+                line-height: 31px;
+            }
+            .state_first_desc{
+                color: rgba(255, 255, 255, 1);
+                font-weight: 600;
+                font-size: 12px;
+                line-height: 14px;
+            }
+            hr{
+                border:1px dashed rgba(255, 255, 255, 0.5);
+            }
+
+        }
+    }
+}

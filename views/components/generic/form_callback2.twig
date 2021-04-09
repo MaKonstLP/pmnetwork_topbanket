@@ -1,0 +1,47 @@
+<div class="form_wrapper callback2">
+
+  <div class="form_title2">
+        <div>
+          Поможем выбрать зал на праздник
+        </div>
+  </div>
+
+  <form class="form_block" action="/ajax/form/"  data-type="{{type ? type : 'main'}}">
+
+    <div class="form_inputs2">
+    
+      <div class="input_wrapper">
+        <input type="text" name="name" placeholder="Имя" data-required/>
+      </div>
+      <div class="input_wrapper">
+        <input type="text" name="phone" placeholder="+7 (900) 999 99-99" data-required/>
+      </div>
+      <div class="input_wrapper">
+        <input type="text" name="email" placeholder="Электронная почта" />
+      </div>
+    </div>
+      <div class="comment_wrapper">
+          <div class="input_label"></div>
+          <textarea name="Comment" placeholder="Комментарий"></textarea>
+      </div>
+
+    <div class="form_submit_callback">
+      <div class="Red">Подобрать зал</div>
+      <div class="form_policy checkbox_item _active" data-action="form_checkbox" data-form-privacy>
+        <input type="checkbox" name="policy" class="personalData" checked=""  data-required>
+        <p class="checkbox_pseudo">Я согласен с <a class="_link" href="/privacy/" target="_blank">политикой обработки данных</a></p>
+      </div>
+    </div>
+
+  </form>
+  <div class="form_success">
+    <div class="header_form_popup_message_sent _hide" data-success>
+
+            <h2>Заявка отправлена</h2>
+            <p class="header_form_popup_message"><span data-success-name></span>, спасибо за проявленный интерес. Наши менеджеры свяжутся с вами<br>в течение дня и помогут подобрать зал для корпоратива.</p>
+            <p class="header_form_popup_message_close _link" data-success-close>Понятно, закрыть</p>
+            <div class="close_button"></div>
+
+        </div>
+  </div>
+</div>      

@@ -1,0 +1,238 @@
+@import '_Button.scss';
+footer{
+    margin-top: 43px;  
+    font-size: 14px;
+    position: relative;
+    z-index: auto;
+    background: white;
+    @include for-lowdesc{
+        margin-top:34px;
+    }
+
+    .footer_container{
+        margin: 0 25px;
+    }
+
+    .footer_wrap{
+        padding-top: 35px;
+        padding-bottom: 30px;
+        margin: auto;
+        @include for-mobile{
+            padding: 32px 0px 20px;
+        }
+
+        .footer_row{
+            width: 1170px;
+            margin: auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            @include for-lowdesc{
+                width: 930px;
+            }
+            @include for-pad{
+                width: 689px;
+            }
+            @include for-mobile{
+                flex-direction:column;
+                justify-content: center;
+                width: 223px;
+            }
+                .footer_block_right{
+                    width: 43%;             
+                    display: flex;
+                    flex-direction:row;
+                    align-items: center;
+                    justify-content:space-between;
+                    @include for-lowdesc{
+                    }
+                    @include for-pad{
+                        flex-direction:column;
+                        width: 25%;
+                    }
+                    @include for-mobile{
+                        flex-direction:column;
+                        width: 100%;
+                    }
+                }
+
+                .footer_logo{
+                    width: 210px;
+                    height: 28px;
+                    display: flex;
+                    align-items: center;
+                    flex-direction: row;
+                    @include for-mobile{
+                        margin-bottom: 18px;
+                        margin-top: 21px;
+                        margin-right: 3px;
+                    }
+
+                    .footer_logo_img{
+                        width: 70px;
+                        height: 25px;
+                        background-image: url(/img/topbanket/Logo1.svg);
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        transition: filter 0.2s ease;
+                        @include for-pad{
+                            margin-left: -1px;
+                            margin-bottom: -4px;
+                            height: 23px;
+                            width: 65px;
+                        }
+                        @include for-mobile{
+                            width: 64px;
+                            margin-left: 14px;
+                        }
+                    }
+
+                    .footer_logo_text{
+                        margin-left: 11px;
+                        font-weight: 900;
+                        font-size: 24px;
+                        line-height: 28,8px;
+                        @include for-pad{
+                            margin-top: 4px;
+                            margin-left: 9px;
+                            font-size: 21px;
+                            line-height: 20px;
+                        }
+                        @include for-mobile{
+                            margin-left: 10px;
+                            font-size:21px;
+                            line-height: 22px;
+                        }
+    
+                }
+            }
+
+                .footer_info{
+                    margin-right:60px;
+                    font-size: 14px;
+                    line-height: 17px;
+                    letter-spacing: 0.01em;
+                    line-height: 15px;
+                    @include for-lowdesc{
+                        margin-right: 41px;
+                        line-height: 18px;
+                    }
+                    @include for-pad{
+                        margin-right: 28px;
+                    }
+                    @include for-mobile{
+                        text-align: center;
+                        margin-bottom: 17px;
+                        margin-right: 3px;
+                    }
+
+                    .footer_copy{
+                        font-weight: 400;
+                        font-weight: normal;
+                        @include for-pad{
+                            margin-top: 3px;
+                            line-height: 17px;
+                        }
+                        @include for-mobile{
+                            margin-right: 2px;
+                        }
+
+                    }
+
+                    .footer_pc._link{
+                        font-weight: 400;
+                        color: #E7004C;
+                        border-bottom: 1px solid #E7004C;
+                        @include for-pad{
+                            line-height: 17px;
+                        }
+
+                        &:hover{
+                            color: #FF0054;
+                            border-bottom: none;
+                        }
+
+                        @include for-notdesc{
+                        color: #FF0054;
+                        border-bottom: 1px solid #FF0054;
+                    }
+                    }
+                }
+
+                .footer_phone{
+                    margin-left: 12px;
+                    margin-top: 5px;
+                        @include for-lowdesc{
+                            margin-left:10px;
+                        }
+                        @include for-pad{
+                            margin-left: 0;
+                            margin-top: 0px;
+                        }
+                       @include for-mobile{
+                            margin-bottom: 4px;
+                            margin-left: 0;
+                            margin-right:3px;                        
+                       }         
+
+                    a{
+                        font-weight: 900;
+                        font-size: 18px;
+                        line-height: 22px;
+                        font-style: normal;
+                        @include for-lowdesc{
+                        }
+                        @include for-mobile{
+                            margin-right: 3px;                        
+                       }
+
+                    }
+                }
+
+                .footer_phone_button{
+                    display: flex;
+                    flex-flow: row nowrap;
+                    text-align: right;
+                    cursor: pointer;
+                    position: relative;
+                    @include for-pad{
+                        margin-top: 5px;
+                    }
+                    .Aqua{
+                        padding: 8px 36px;
+                        @include for-pad{
+                            padding:8px 35px 8px 38px;
+                        }
+                    }
+                    & > p{
+                        text-align: right;
+                        line-height: 25px;
+                        font-size: 14px;
+                        font-weight: 800;
+                    }
+
+                    p.link{
+                        color: #E7004C;
+                        border-bottom:1px dashed #E7004C;
+                    }
+                }
+        }
+    }
+
+    @include for-pad{
+        margin: 0px 30px;
+
+        .footer_container{
+            margin: 0;
+        }
+    }
+
+    @include for-mobile{
+        margin: 0px 15px;
+
+        .footer_container{
+            margin: 0 15px;
+        }
+    }
+}

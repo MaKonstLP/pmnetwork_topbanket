@@ -1,0 +1,402 @@
+.best_offer_slider{
+    width: 100%;
+}    
+    .main_item_container{             
+        > p{
+            padding: 10px 0 20px 0;
+             text-align: center;
+        }
+        .items-list{
+            width: 100%;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content:space-between;
+        }   
+        .main_item{
+            position: relative;
+            width: calc(100%/2 - 15px);
+            margin-bottom: 30px;
+            background-color: white;
+            flex-flow: row wrap;
+            transition: box-shadow 0.2s ease;
+            border: 1px #c4c4c4 solid;
+            @include for-mobile{
+                width: 100%;
+                margin-bottom: 25px;
+            }
+
+            .item_img{
+                height: 319px;
+                width: 100%;
+                overflow: hidden;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                @include for-lowdesc{
+                    height: 252px;
+                }
+                @include for-pad{
+                    height: 184px;
+                }
+                @include for-mobile{
+                    height: 185px;
+                }
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            .item_info_container{
+                    display: flex;
+                    flex-flow: row wrap;
+                    width: 100%;
+                    padding: 0 24px 12px;
+                    justify-content: space-between;
+                    @include for-lowdesc{
+                        padding: 17px 25px 25px;
+                    }
+                    @include for-pad{
+                        padding: 18px 22px 26px 20px;
+                    }
+                     @include for-mobile{
+                        padding: 0 15px 26px;
+
+                    }
+                    .info_tab_title{
+                        font-size:12px;
+                        font-weight: 400;
+                    }
+                    .info_tab_text{
+                        font-size: 14px;
+                        font-weight: 700;
+                        @include for-mobile{
+                            line-height: 16px;
+                        }
+                    }
+                    .info_tab_content{
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .info_tab_img_container{
+                        width: 35px;
+                        height: 30px;
+                        margin-right: 12px;
+                    }
+                    .info_tab_img{
+                    }
+                    .item_info_top{
+                        align-items: baseline;
+                        width: 100%;
+                        justify-content: space-between;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        margin:18px 0 20px;                        
+                        @include for-lowdesc{
+                            flex-flow: column nowrap;
+                            margin-bottom: 19px;
+                            margin-top: 0px;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                        @include for-pad{
+                            flex-flow: column nowrap;
+                            align-items: center;
+                            margin: -2px 0 29px;
+                        }
+                        @include for-mobile{
+                            flex-flow: column nowrap;
+                            align-items: center;
+                            margin-bottom: 31px;
+                        }
+                        .address{
+                            width: 47%;
+                            @include for-lowdesc{
+                                width: 100%;
+                                margin-bottom: 20px;
+                                margin-right:3px;
+                            }
+                            @include for-pad{
+                                width: 100%;
+                                margin-left: 0px;
+                            }
+                            @include for-mobile{
+                                margin-right: -10px;
+                                margin-bottom: 15px;
+                                width: 100%;
+                                align-items:left;
+                            }
+                        }
+                        .Red{
+                            text-transform: uppercase;
+                            padding: 8px 26px;
+                            @include for-pad{
+                                margin-top: 17px;
+                            }
+                            @include for-mobile{
+                                text-transform: uppercase;
+                                font-size: 14px;
+                                font-weight: 600;
+                                line-height: 17px;
+                                padding: 10px 25px 6px 25px;
+                            }
+                        }
+                    }
+                    .info_tab{
+                        display: flex;
+                        flex-direction: row;
+                        width: calc(100%/3);
+                        margin-bottom: 20px;
+                        @include for-lowdesc{
+                            width: calc(95%/2);
+                        }
+                        @include for-pad{
+                            width: calc(95%/2);
+                        }
+                        @include for-mobile{
+                            width: calc(94%/2 + 4px);
+                            margin-bottom: 21px;
+                        }
+                        .info_tab_img{
+                            height: 30px;
+                            width: 35px;
+                            align-items:center;
+                            @include for-pad{
+                                margin-right: 13px;
+                            }
+                        }                        
+                    }
+                    .info_tab_Kitchen{
+                        display: flex;
+                        flex-direction: row;
+                        width: 66%;
+                        @include for-lowdesc{
+                            width: 100%;
+                        }
+                        @include for-pad{
+                            width: 100%;
+                        }
+                        @include for-mobile{
+                            width: 70%;
+                        }                   
+                    }
+                    .item_name{
+                        font-weight: bold;
+                        line-height: 24px;
+                        font-size: 20px;
+                        text-align: center;
+                        padding-bottom: 2px;                        
+                    }
+
+                    .item_parent_name{
+                        font-weight: 500;
+                        font-size: 12px;
+                        line-height: 15px;
+                        color: #5BA641;
+                        text-align: center;
+                    }
+
+                    .item_address{
+                        margin-left: -2px;
+                        display: inline;
+                        font-weight: 700;
+                        font-size: 14px;
+                        line-height: 17px;
+                    }
+
+                    .item_horizontal_raw{
+                        border: 0;
+                        border-bottom: 1px solid #D83603;
+                        width: 60px;
+                        padding-top: 12px;
+                    }
+                        .item_meta_item{
+                            display: flex;
+                            flex-direction: column;
+                            width: 50%;
+                            font-weight: 500;
+                            font-size: 14px;
+                            line-height: 22px;
+                            white-space: nowrap;
+
+                            @include for-mobile{
+                                text-align: center;
+                                width: 100%;
+                            }
+
+                            .item_meta_label{
+                                font-size: 12px;
+                                font-weight: 400;
+                            }
+
+                            .item_meta_text{                            
+                            }
+
+                            &:last-child {
+                                padding: 0 0 0 0;
+                            }
+                        }                    
+            }
+
+
+            .item_additional-info{
+                display: flex;
+                flex-flow: row nowrap;
+                position: absolute;
+                justify-content:space-between;
+                width: 91%;
+                top: 20px;
+                left: 25px;
+
+                @include for-lowdesc{
+                    flex-flow: column nowrap;
+                }
+                @include for-pad{
+                    flex-flow: column nowrap;
+                }
+                @include for-mobile{
+                    height: 31%;
+                    flex-flow: column nowrap;
+                }
+                .item_info_name{
+                    width: 262px;
+                    @include for-lowdesc{
+                        width: 90%;
+                    }
+                    .item_name{
+                        display: inline;
+                        color: white;
+                        border-bottom: white solid 1px;
+                        font-size: 20px;
+                        font-weight: bold;
+                        @include for-pad{
+                            font-size: 16px;
+                        }
+                        @include for-mobile{
+                            font-size: 16px;
+                        }
+                    }
+                    .item_name_desc{
+                        color: white;
+                        font-size: 14px;
+                        margin-top: 11px;
+                        @include for-lowdesc{
+                            margin-bottom: 20px;
+                            margin-top: 9px;
+                        }
+                    }
+                }
+                .item_info_block{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    align-items:flex-start;
+                    @include for-pad{
+                        margin-top:28px;
+                    }
+                    @include for-mobile{
+                        margin-bottom: -1px;
+                    }                    
+                    .item_info_cost{
+
+                        padding: 11px 13px 11px 17px;
+                        border-radius: 5px;
+                        background-color: rgba(35, 35, 35, 0.5);
+                        margin-bottom: 8px;
+
+                        color: white;
+                        font-size: 16px;
+                        font-weight: 700;
+                        @include for-lowdesc{
+                        padding: 8px 17px;
+                        margin-bottom:12px;                          
+                        }
+                        @include for-pad{
+                        padding: 8px 15px 5px 15px;                        
+                        font-size: 14px;
+                        }
+                        @include for-mobile{
+                        padding: 5px 15px;
+                        font-size: 14px;
+                        font-weight: 600;
+                        line-height: 17px;
+                        }                        
+                    }
+
+                    .item_gift-for-early-reservation{
+                        border-radius: 5px;
+                        background: url("/img/topbanket/Gift1.svg"), #26C5BD;
+                        background-repeat: no-repeat;
+                        background-position: 8px center;
+                        margin-bottom: 6px;
+                        padding: 8px 12px 5px 41px;
+                        .reservation_title{
+                            color: white;
+                            font-size: 14px;
+                            line-height: 17px;
+                            font-weight: 500;
+                        }
+                        @include for-lowdesc{
+                            background-position: 9px center;
+                            padding: 3px 12px 6px 42px;
+                        }
+                        @include for-pad{
+                            padding: 8px 13px 5px 43px;
+                        }
+                        @include for-mobile{
+                            padding: 8px 12px 7px 43px;
+                            margin-bottom: 11px;
+                            background-position: 9px center;
+                        }
+                    }
+                }
+                span{
+                    display: block;
+                    font-size: 11px;
+                    line-height: 13px;
+                    font-weight: 500;
+                    color: #333333;
+                }
+            } 
+        }
+        
+
+        @include for-notdesc{
+            position: relative;
+            padding-top: 0;
+
+            .swiper-pagination.swiper-pagination-bullets{
+
+                .swiper-pagination-bullet-active{
+                    background: #FFC839;
+                    border: 1px solid #FFC839;
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev{
+            display: none;
+            }    
+        }
+
+        @include for-pad{
+
+            .swiper-pagination.swiper-pagination-bullets{
+                top: auto;
+                bottom: 10px;
+            }
+        }
+
+        @include for-mobile{
+
+            .swiper-pagination.swiper-pagination-bullets{
+                top: auto;
+                bottom: -4px;
+            }
+        }
+    }
+
+    @include for-mobile{
+        padding-top: 19px;
+    }

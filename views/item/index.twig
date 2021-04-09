@@ -1,0 +1,229 @@
+<div class="item_page_wrapper" data-page-type="item">
+
+    <div class="item_top_bg">
+        <div class="bread_container">
+            <div class="breadcrumbs">
+
+                {% for link,name in seo.breadcrumbs %}
+
+
+                {% if loop.index == 2 %}
+
+                    <div class="breadcrumbs_slices_container">
+
+                        <div class="breadcrumbs_current_slice">
+
+                            <a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+                            <div class="arrow"></div>
+
+                        </div>
+
+                        <div class="breadcrumbs_slices_list _hide">
+
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/banketnye-zaly/">
+                                <span class="breadcrumbs_item">Банкетные залы</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/restorany/">
+                                <span class="breadcrumbs_item">Рестораны</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/kafe/">
+                                <span class="breadcrumbs_item">Кафе</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/kluby/">
+                                <span class="breadcrumbs_item">Клубы</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/bary/">
+                                <span class="breadcrumbs_item">Бары</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/v-gorode/">
+                                <span class="breadcrumbs_item">В городе</span>
+                            </a>
+                            <a class="breadcrumbs_item_wrapper"  href="/ploshhadki/na-prirode/">
+                                <span class="breadcrumbs_item">На природе</span>
+                            </a>
+                            
+                        </div>
+
+                    </div>
+
+                {% else %}
+
+                    <a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+                {% endif %}
+
+            {% endfor %}
+
+            </div>
+        </div>    
+        <div class="content_block_top" data-listing-title>
+            {{ this.render('//components/generic/item_title.twig', {'seo':seo, 'item':item}) | raw }}
+        </div>
+    </div>
+    <div class="content_block" data-page-type="item">
+        <div class="object_head">
+
+            <div class="object_gallery" data-gallery data-id="{{item.restaurant_id}}">
+
+                <div class="swiper-container gallery-top">
+                    <img src="{{item.restaurant_images[0].subpath}}">
+                </div>
+                <div class="gallery_counter">
+                    <span class="gallery_counter_current">1</span>/ {{item.restaurant_images|length}}
+                </div>
+                <div class="btn_slider_panel">
+                     <div class="slider_btn">
+                      ←
+                    </div>
+                    <div class="slider_btn">
+                        →
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="object_parameters">
+
+                {{ this.render('//components/generic/item_parameter_list.twig', {'item':item}) | raw }}
+                
+            </div>
+        </div>
+        <div class="object_about">
+            <div class="about_desc">
+                <div class="desc_title">
+                    О ресторане
+                </div>
+                <div class="desc_body">
+                    Ресторан «Русская охота» расположен на набережной реки Волга, где вы сможете провести свадебную фотосессию и организовать прогулку с гостями.
+                    Мы предлагаем вам три просторных зала с панорамным видом на реку Волга, которые могут трансформироваться под любой формат мероприятия.
+
+                    Центральный зал выполнен в светлых тонах, где прекрасно подойдет любое цветовое оформлению. Основной особенностью является то, что возможно празднично оформить люстру.
+                </div>
+                <div class="desc_btn_container">
+                    <div class="desc_btn">
+                        Показать полностью
+                    </div>
+                </div>
+            </div>
+            <div class="about_tags">
+                <div class="tags_title">
+                    Подходит для мероприятий
+                </div>
+                <div class="tags_body">
+                    <div class="tag">Свадьба</div>
+                    <div class="tag">День рождения</div>
+                    <div class="tag">Новый год</div>
+                    <div class="tag">Фуршет</div>
+                    <div class="tag">Праздничный банкет</div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="object_panorama">
+            <div class="panorama_title">
+                Зd панорама ресторана «Русская охота»
+            </div>
+            <div class="panorama_body">
+            </div>
+        </div>-->
+        <div class="object_rooms">
+            <div class="rooms_body">
+                {% for room in item.rooms %}
+                    <div class="room">
+                        <div class="room_gallery">
+                            <div class="gallery_img">
+                                <!--{% for image in room.images %}
+                                    <img src="{{image.subpath}}">
+                                {% endfor %}-->
+                                <img src="{{room.images[0].subpath}}">
+                            </div>
+                            <div class="gallery_counter">
+                                <span class="gallery_counter_current">1</span>/{{room.images|length}}
+                            </div>
+                            <div class="btn_slider_panel">
+                                <div class="slider_btn">
+                                    ←
+                                </div>
+                                <div class="slider_btn">
+                                    →
+                                </div>
+                            </div>
+                        </div>
+                        <div class="room_info">
+                            <div class="room_title">
+                                {{ room.name }}
+                            </div>
+                            <div class="room_parameters">
+                                <div class="room_parameter"> <div class="parameter_name">Тип</div> <span class="parameter_body"> {{ room.type_name }}</span></div>
+                                <div class="room_parameter"> <div class="parameter_name">Вместимость</div> <span class="parameter_body"> {{ room.capacity }}</span></div>
+                                <div class="room_parameter"> <div class="parameter_name">Схема оплаты</div> <span class="parameter_body"> {{ item.restaurant_payment }}</span></div>
+                                <div class="room_parameter"> <div class="parameter_name">Возможна аренда без еды</div>
+                                    {% if room.rent_only == 0 %}
+                                        <span class="parameter_body"> Нет</span>
+                                    {% else %}
+                                        <span class="parameter_body"> Да</span>
+                                    {% endif %}
+                                </div>
+                                <div class="room_parameter"> <div class="parameter_name">Стоимость</div> <span class="parameter_body"> от {{ room.price }} Р/чел.</span></div>
+                                <div class="room_parameter"> <div class="parameter_name">Светлый зал</div>
+                                    {% if room.bright_room == 0 %}
+                                        <span class="parameter_body"> Нет</span>
+                                    {% else %}
+                                        <span class="parameter_body"> Да</span>
+                                    {% endif %}
+                                </div>
+                                <div class="room_parameter"> <div class="parameter_name">Отдельный вход</div>
+                                    {% if room.separate_entrance == 0 %}
+                                        <span class="parameter_body"> Нет</span>
+                                    {% else %}
+                                        <span class="parameter_body"> Да</span>
+                                    {% endif %}
+                                </div>                                
+                            </div>
+                            <div class="room_free_date">
+                                <span class="free_date_btn">Уточнить свободные даты</span>
+                            </div>
+                            <div class="Red">
+                                Забронировать
+                            </div>
+                        </div>
+                        <div class="room_desc">
+                            Банкетный зал идеально подходит для проведения свадебного торжества. Окна большого зала выходят на парковую зону. Уникальный зонированный интерьер позволяет проводить в нем одновременно несколько банкетов без помех друг другу.
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="object_other_tp">
+            <div class="other_tp_title">
+                Посмотрите другие виды ресторанов
+            </div>
+            <div class="other_tp_body">
+                <a href="" class="tp" style="background: url(/img/topbanket/pp1.png); background-size: cover"></a>
+                <a href="" class="tp" style="background: url(/img/topbanket/pp2.png); background-size: cover"></a>
+                <a href="" class="tp" style="background: url(/img/topbanket/pp3.png); background-size: cover"></a>
+                <a href="" class="tp" style="background: url(/img/topbanket/pp4.png); background-size: cover"></a>
+            </div>
+        </div>
+        <div class="object_form2">
+            {{ this.render('//components/generic/form_callback2.twig') | raw }}
+        </div>
+        <div class="object_other_pl">
+            <div class="other_pl_title">
+                Другие рестораны
+            </div>
+            <div class="btn_slider_panel">
+                <div class="slider_btn">
+                    ←
+                </div>
+                <div class="slider_btn">
+                    →
+                </div>
+            </div>
+            <div class="other_pl_body">
+                        {{ this.render('//components/generic/profitable_offer.twig',
+                         {items:other_rests,city_rod:1} )| raw }}
+            </div>
+        </div>
+    </div>
+</div>

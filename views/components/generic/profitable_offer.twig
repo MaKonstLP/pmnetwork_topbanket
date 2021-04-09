@@ -1,0 +1,102 @@
+<div class="main_item_container"> 
+
+
+  <div class=" items-list">
+    {% for item in items %}
+      <a href="/ploshhadki/{{item.id}}/" class="main_item {{type}}">
+        <div class="item_img">
+            <img  loading="lazy" src="{{item.restaurant_cover_url}}=w440-h302-n-l95" alt="{{img_alt | replace({"{название}" : item.restaurant_name})}}"/>
+
+            <!--<div class="item_date-availability">
+                <span>Свободно 12 декабря</span>
+            </div>-->
+
+        </div>
+        <div class="item_info_container">
+                <div class="item_info_top">
+                    <div class="address">
+                        <span class="info_tab_text" >Адрес:</span>
+                        {% if type != 'other' %}
+                        <p class="item_address">{{item.restaurant_address}}</p>
+                        {% endif %}
+                    </div>
+                    <div class="Red">
+                        Забронировать
+                    </div>
+                </div>                   
+                <div class="info_tab" >
+                    <div class="info_tab_img_container">
+                        <img class="info_tab_img" src="/img/topbanket/rooms.svg" >
+                    </div>
+                    <div class="info_tab_content">
+                        <span class="info_tab_title">Залов</span>
+                        <span class="info_tab_text">{{item.rooms|length}}</span>
+                    </div>     
+                </div>    
+                <div class="info_tab">
+                    <div class="info_tab_img_container">
+                        <img class="info_tab_img" src="/img/topbanket/meta1.svg">
+                    </div>
+                    <div class="info_tab_content">
+                        {% if item.restaurant_min_capacity != item.restaurant_max_capacity %}
+                            <div class="item_meta_item">
+                                <span class="item_meta_label">Вместимость: </span><span class="info_tab_text">{{item.restaurant_min_capacity}} - {{item.restaurant_max_capacity}} чел.</span>
+                            </div>
+                        {% else %}
+                            <div class="item_meta_item">
+                                <span class="item_meta_label">Вместимость: </span><span class="info_tab_text" >{{item.restaurant_min_capacity}} чел.</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="info_tab">
+                    <div class="info_tab_img_container">
+                        <img class="info_tab_img" src="/img/topbanket/parking1.svg">
+                    </div>
+                    <div class="info_tab_content">
+                        <span class="info_tab_title">Паркинг</span>
+                        {% if item.restaurant_parking != 0 %}
+                        <span class="info_tab_text">{{item.restaurant_parking}}</span>
+                        {% else %}
+                        <span class="info_tab_text">Отсутствует</span>
+                        {% endif %}  
+                    </div>
+                </div>
+                <div class="info_tab">
+                    <div class="info_tab_img_container">
+                        <img class="info_tab_img" src="/img/topbanket/alco1.svg">
+                    </div>
+                    <div class="info_tab_content">                    
+                        <span class="info_tab_title">Свой Алкоголь</span>
+                        <span class="info_tab_text">{{item.restaurant_own_alcohol}}</span>
+                    </div>
+                </div>
+                <div class="info_tab_Kitchen">
+                    <div class="info_tab_img_container">
+                        <img class="info_tab_img" src="/img/topbanket/Kitchen1.svg">
+                    </div>
+                    <div class="info_tab_content">
+                        <span class="info_tab_title">Кухня</span>
+                        <span class="info_tab_text"> {{item.restaurant_cuisine}}</span>
+                    </div>
+                </div>
+        </div>
+        <div class="item_additional-info">
+            <div class="item_info_name">
+                <p class="item_name">{{item.restaurant_name}}</p>
+                <span class="item_name_desc">{{item.restaurant_types[0].name}} </span>
+            </div>
+            <div class="item_info_block">
+                <div class="item_info_cost">
+                    от {{item.restaurant_price}} руб./ чел.
+                </div>
+                <div class="item_gift-for-early-reservation">                
+                    <span class="reservation_title"> за бронирование</span>
+                </div>
+            </div>
+        </div>
+    </a>
+    {% endfor %}
+  </div>
+    
+</div>

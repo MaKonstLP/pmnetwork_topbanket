@@ -1,0 +1,67 @@
+<div data-page-type="listing">
+	<div class="filter_listing_bg">
+		<div class="content_block filter_listing">
+			{{filter | raw }}
+		</div>
+	</div>	
+	<div class="listing_info">
+		<div class="listing_info_title">
+			Рестораны Москвы для дня рождения на 20 человек
+		</div>
+		<div class="listing_info_desc">
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мертоприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мертоприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мертоприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+		</div>
+		<div class="content_block" data-listing-title>
+			<div class="title_count">Найдено {{count}} вариант{{Declension.end_restaurants(count)}}</div>			
+		</div>
+	</div>		
+		<div class="items_list_listing" data-listing-wrapper>
+			<div class="items_list" data-listing-list>
+
+				{{ this.render('//components/generic/profitable_offer.twig', {'items':items, 'img_alt':seo.img_alt}) | raw }}
+
+			</div>
+		</div>
+	<div class="btn_container">
+		<div class="DO_listing_load_btn">
+			Подгрузить ещё
+		</div>
+	</div>
+	<div class="listing_info">
+		<div class="listing_info_ref_container">
+			<span>Показать:</span>
+			<a href="" class="_link">чек 1000-1500 рублей</a>
+			<a href="" class="_link">чек 1500-2000 рублей</a>
+			<a href="" class="_link">чек 2000-3000 рублей</a>
+			<a href="" class="_link">чек 3000-5000 рублей</a>
+			<a href="" class="_link">чек от 5000 рублей</a>
+			<a href="" class="_link">банкет до 50 человек</a>
+			<a href="" class="_link">банкет до 50-100 человек</a>
+			<a href="" class="_link">банкет до 100-150 человек</a>
+			<a href="" class="_link">банкет до 150-200 человек</a>
+		</div>
+		<div class="listing_info_desc2">
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+
+			Нужно небольшое кафе на 20 человек? Все кафе для свадьбы или любого вашего мероприятия в одном каталоге! Более 100 кафе на 20 человек. Скидки, акции, бонусы. Гарантия самой низкой цены. Горящие предложения на ближайшие даты. 
+		</div>
+		<div class="full_btn_container">
+			<div class="load_full_btn">
+			Показать полностью
+			</div>	
+		</div>
+	</div>
+	<div class="content_block map listing" data-map-api-subid="{{ subid }}"></div>
+	<div class="content_block form_callback_wrapper"> 
+		<div >
+			{{ this.render('//components/generic/form_callback2.twig') | raw }}
+		</div>
+	</div>
+	<div class="state_wrapper">
+		{{ this.render('//components/generic/State_block.twig') | raw}}
+	</div>
+
+	<div class="content_loading"></div>
+</div>

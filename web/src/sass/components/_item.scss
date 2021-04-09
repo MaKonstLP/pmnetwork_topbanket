@@ -1,0 +1,1620 @@
+.item_page_wrapper{
+    position: relative;
+    z-index: 0;
+    margin-bottom: -9px;
+    .map{
+        height: 500px;
+        padding-top: 50px;
+        position: relative;
+        z-index: 10;
+
+        @include for-mobile{
+            height: 230px;
+            padding-top: 30px;
+        }
+    }
+
+    @include for-pad{
+
+        .title{
+        }
+
+        [data-listing-title]{
+            z-index: 2;
+
+            .breadcrumbs{
+                background: white;
+            }
+
+            .title_address{
+                p{
+                    background: white;
+                }
+                .item_gift-for-early-reservation{
+                    background-position: 3px center;
+                }
+            }
+        }
+
+        &:before{
+            top: -150px;
+        }
+
+        &:after{
+            top: -180px;
+        }
+    }
+
+    @include for-mobile{
+        &:before{
+            content: none;
+        }
+
+        &:after{
+            content: none;
+        }
+    }
+
+}
+
+.content_block[data-page-type="item"]{
+    position: relative;
+    z-index: -1;
+}
+
+.object_head{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-right: calc(100% - 400px);
+    position: relative;
+    min-height: 472px;
+    z-index: 1;
+
+    @include for-lowdesc{
+        padding-right: 0px;
+        justify-content:left;
+        width: 930px;
+        margin: auto;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: auto;
+        padding-right: 0;
+    }
+    @include for-mobile{
+        margin: 29px auto 0;
+    }
+}
+
+.object_gallery{
+    display: flex;
+    flex-flow: column nowrap;
+    width: 770px;
+    height: 522px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0;
+    @include for-lowdesc{
+        position: absolute;
+        width: 610px;
+        height: 412px;
+    }
+    @include for-pad{
+        position: relative;
+        margin: 0 auto 15px;
+        width: 610px;
+        padding-top: 5px;
+        height: 417px;
+    }
+    @include for-mobile{
+        position: relative;
+        height: 221px;
+    }
+    img{
+        height: 100%;
+        width: 100%;
+    }
+
+    .btn_slider_panel{
+        position: absolute;
+        right: 30px;
+        bottom: 0;
+        width: 139px;
+        height: 60px;
+        z-index: 1;
+        @include for-lowdesc{
+            width: 109px;
+            height: 49px;
+            right: 24px;
+        }
+        @include for-pad{
+            width: 109px;
+            height: 49px;
+            right: 24px;
+        }
+        @include for-mobile{
+            width: 58px;
+            height: 26px;
+            right: 14px;
+        }
+        .slider_btn{
+            width: 64px;
+            height: 59px;
+            font-size: 30px;
+            padding: 10px 0;
+            @include for-lowdesc{
+                width: 51px;
+                height: 45px;
+                font-size: 23px;
+            }
+            @include for-pad{
+                width: 51px;
+                height: 45px;
+                font-size: 23px;
+            }
+            @include for-mobile{
+                padding: 5px 0;
+                width: 26px;
+                height: 26px;
+                font-size: 14px;
+            }
+        }
+    }
+    .gallery_counter{
+        font-size: 19px;
+        padding: 9px 23px;
+        background-color: #f6f6f6;
+        position: absolute;
+        left: 20px;
+        bottom: 0px;
+        z-index: 1;
+        width: 102px;
+        height: 60px;
+        @include for-lowdesc{
+            width: 81px;
+            height: 49px;
+            left: 15px;
+            padding: 11px 20px;
+            font-size: 18px;
+        }
+        @include for-pad{
+            width: 81px;
+            height: 49px;
+            left: 15px;
+            padding: 11px 20px;
+            font-size: 18px;
+        }
+        @include for-mobile{
+            width: 40px;
+            height: 24px;
+            left: 8px;
+            padding: 0px 5px;
+            font-size: 14px;
+        }
+        .gallery_counter_current{
+            font-size: 30px;
+            line-height: 43px;
+            font-weight: 900;
+            @include for-lowdesc{
+                font-size: 25px;
+                line-height: 30px;
+            }
+            @include for-pad{
+                font-size: 25px;
+                line-height: 30px;
+            }
+            @include for-mobile{
+                font-size: 20px;
+                line-height: 24px;
+            }            
+        }
+    }
+    .swiper-container{
+        width: 100%;
+        height: 300px;
+        margin-left: auto;
+        margin-right: auto;
+
+        .swiper-slide{
+            background-size: cover;
+            background-position: center;
+
+            img{
+                width: 100%;
+            }
+        }
+
+        &.gallery-top{
+            height: 503px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            @include for-lowdesc{
+                height: 398px;
+            }
+            @include for-pad{
+                height: 395px;
+            }
+            @include for-mobile{
+                height: 213px;
+            }
+        }
+
+        &.gallery-top-room{
+            height: 472px;
+            width: 100%;
+            }
+
+        &.gallery-thumbs-room{
+            height: 100px;
+            padding: 10px 0;
+
+            .swiper-slide{
+                cursor: pointer;
+                width: 20%;
+                height: 92px;
+                border: 1px solid white;
+            }
+        }
+
+        &.gallery-thumbs{
+            height: 200px;
+            box-sizing: border-box;
+            padding: 10px 0;
+
+            .swiper-slide{
+                cursor: pointer;
+                width: 20%;
+                height: 92px;
+                border: 1px solid white;
+            }
+        }
+
+        .swiper-slide.swiper-slide-thumb-active{
+            border: 1px solid #D83603;
+        }
+
+        @include for-mobile{
+            height: 221px;
+            &.gallery-top,
+            &.gallery-top-room{
+                height: 213px;
+                width: 100%;
+            }
+
+            &.gallery-thumbs,
+            &.gallery-thumbs-room{
+                height: 60px;
+                box-sizing: border-box;
+                padding: 10px 0;
+    
+                .swiper-slide{
+                    cursor: pointer;
+                    width: auto;
+                    height: 50px;
+                }
+            }
+
+        }
+    }
+    @include for-mobile{
+        width: 100%;
+    }
+}
+
+.object_gallery_main{
+    width: 710px;
+    height: auto;
+}
+
+.object_meta{
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(50vw - 200px);
+
+    .object_meta_block{
+        display: flex;
+    }
+
+    .object_meta_item{
+        margin: 0px 34px 20px 0px;
+
+        &:last-child{
+            margin-right: 0px;
+        }
+
+        .object_meta_title{
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+        .object_meta_value{
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 22px;
+
+            span{
+                font-weight: 600;
+                font-size: 24px;
+            }
+        }
+    }
+}
+.object_about{
+    margin-bottom: 50px;
+    margin-top: 48px;
+    padding: 0 30px;
+    @include for-lowdesc{
+        width: 930px;
+        margin: 85px auto 50px;
+        padding: 0 20px;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: auto;
+        padding: 30px 13px 0px;
+    }
+    @include for-mobile{
+        padding: 0;
+        margin-top: 67px;
+        margin-left: -2px;
+    }
+    .about_desc{
+        margin-left: 2px;
+        .desc_title{
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 900;
+            margin-bottom: 11px;
+            @include for-mobile{
+                margin-bottom: 11px;
+            }
+        }
+        .desc_body{
+            font-size: 16px;
+            line-height: 19px;
+            font-weight: 400;
+            height: 110px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            @include for-pad{
+                height: 75px;
+                margin-bottom: 8px;
+            }
+            @include for-mobile{
+                height: 147px;
+            }
+        }
+        .desc_btn_container{
+            display: flex;
+            justify-content:left;
+            margin-bottom: 50px;
+            @include for-mobile{
+                margin-bottom: 40px;
+            }
+            .desc_btn{
+                cursor: pointer;
+                display: inline;
+                font-size: 16px;
+                line-height: 19px;
+                font-weight: 400;
+                color: rgba(231, 0, 76, 1);
+                border-bottom: 1px dashed #E7004C;
+            }
+        }
+    }        
+    .about_tags{
+        display: none;
+        @include for-lowdesc{
+            display: block;
+        }
+        @include for-pad{
+            display: block;
+        }
+        @include for-mobile{
+            display: block;
+        }
+        .tags_title{
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 900;
+            margin-bottom: 19px;
+            @include for-lowdesc{
+                margin-bottom: 13px;
+            }
+            @include for-pad{
+                margin-bottom: 11px;
+            }
+            @include for-mobile{
+                margin-bottom: 11px;
+            }
+        }
+        .tags_body{
+            display: flex;
+            flex-flow: row wrap;            
+            .tag{
+                padding: 12px 35px;
+                border: 1px solid #C4C4C4;
+                border-radius: 5px;
+                margin-right: 20px;
+                @include for-lowdesc{
+                   margin-right: 18px;
+                   padding: 9px 26px; 
+                }
+                @include for-pad{
+                    padding: 10px 26px;
+                    margin-bottom: 9px;
+                }
+                @include for-mobile{
+                    padding: 10px 25px;
+                    margin-bottom: 9px;
+                }
+                
+            }
+        }
+    }
+}
+/*.object_panorama{
+    width: 1170px;
+    height: 677px;
+    background-color: #F6F6F6;
+    padding-top: 50px;
+    margin-bottom: 70px; 
+    .panorama_title{
+            text-align: center;
+            font-size: 20px;
+            line-height: 28px;
+            font-weight: 900;
+    }
+    .panorama_body{
+
+    }
+}*/
+.object_rooms{
+    @include for-lowdesc{
+        width: 930px;
+        margin: 0 auto -16px;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: auto;
+    }
+    .rooms_body{
+        display: flex;
+        flex-flow: column nowrap;
+        padding: 0 80px;
+        @include for-lowdesc{
+            padding: 0px;
+        }
+        @include for-pad{
+            padding: 0px;
+        }
+        @include for-mobile{
+            padding: 0;
+        }
+        .room{
+            display: flex;
+            flex-flow: row wrap;
+            margin: 0px auto 56px;
+            @include for-lowdesc{
+                margin-bottom: 44px;
+            }
+            @include for-mobile{
+                width: 100%;
+                position: relative;
+            }
+            .room_gallery{
+                position: relative;
+                width: 470px;
+                height: 326px;
+                @include for-pad{
+                    width: 330px;
+                    height: 228px;
+                }
+                @include for-mobile{
+                    width: 100%;
+                    position: absolute;
+                    top: 281px;
+                    height: 230px;
+                }
+                .gallery_img{
+                    width: 470px;
+                    height: 312px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    @include for-pad{
+                        width: 100%;
+                        height: 219px;
+                    }
+                    @include for-mobile{
+                        width: 100%;
+                        height: 220px;
+                    }
+                }
+                .gallery_counter{
+                    position: absolute;
+                    bottom: -3px;
+                    left: 20px;
+                    background-color: #F6F6F6;
+                    padding: 0px 19px;
+                    font-size: 16px;
+                    line-height: 23px;
+                    font-weight: 400;
+                    @include for-pad{
+                        left: 14px;
+                        padding: 0 8px;
+                    }
+                    @include for-mobile{
+                        bottom: 0;
+                        left: 12px;
+                        padding: 0 6px;
+                    }
+                    .gallery_counter_current{
+                        font-size: 30px;
+                        line-height: 43px;
+                        font-weight: 700;
+                        @include for-mobile{
+                            font-size: 26px;
+                            line-height: 30px;
+                        }
+                    }
+                }
+                .btn_slider_panel{
+
+                    right: 20px;
+                    bottom: 0;
+                    @include for-pad{
+                        right: 15px;
+                        width: 66px;
+                        height: 28px;
+                    }
+                    @include for-mobile{
+                        right: 16px;
+                        bottom: 0px;
+                        height: 30px;
+                        width: 67px;
+                    }
+                    .slider_btn{
+                        @include for-pad{
+                            padding: 4px 0;
+                            width: 29px;
+                            height: 100%;
+                        }
+                        @include for-mobile{
+                            width: 30px;
+                            height: 30px;
+                            padding: 5px 0;
+                        }
+                    }
+                }
+            }
+            .room_info{
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: flex-start;
+                margin-left: 50px;
+                @include for-pad{
+                    margin-left: 30px;
+                } 
+                @include for-mobile{
+                    margin-left: -2px;
+                }
+                .room_title{
+                    font-size:20px;
+                    line-height: 29px;
+                    font-weight: 900;
+                    @include for-pad{
+                        font-size: 18px;
+                        line-height: 11px;
+                    }
+                }
+                .room_parameters{
+                    margin-top: 17px;
+                    @include for-pad{
+                        margin-top: 23px;
+                    }
+                    @include for-mobile{
+                        margin-top: 14px;
+                    }
+                    .room_parameter{
+                        display: flex;
+                        margin-bottom: 8px;
+                        .parameter_name{
+                            width: 180px;
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 17px;
+                            @include for-mobile{
+                                width: 50%;
+                            }
+
+                        }
+                        .parameter_body{
+                            font-size: 14px;
+                            font-weight: 400;
+                            line-height: 17px;
+                            margin-left: 13px;
+                            @include for-lowdesc{
+                                width: 170px;
+                            }
+                            @include for-pad{
+                                width: 135px;
+                            }
+                            @include for-mobile{
+                                width: 140px;
+                            }
+                        }
+                    }
+                }
+                .room_free_date{
+                    margin-top: 15px;
+                    color: rgba(231, 0, 76, 1);
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 17px;
+                    border-bottom: 1px dashed rgba(231, 0, 76, 1);
+                    @include for-mobile{
+                        margin-top: 8px;
+                    }   
+                }
+                .Red{
+                    margin-top: 24px;
+                    text-transform: uppercase;
+                    padding: 9px 27px 7px 25px;
+                    @include for-mobile{
+                        margin-top: 254px;
+                    }
+                }                
+            }
+            .room_desc{
+                margin-top: 17px;
+                font-size: 16px;
+                line-height: 19px;
+                font-weight: 400;
+                @include for-mobile{
+                    margin-top: 20px;
+                    margin-left: -2px;
+                }
+            }
+
+        }        
+    }
+}
+.object_other_tp{
+    margin-bottom: 80px;
+    @include for-lowdesc{
+        width: 930px;
+        margin: 0 auto 70px;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: auto;
+    }
+    @include for-mobile{
+        margin-left: -5px;
+        margin-bottom: 38px;
+    }
+    .other_tp_title{
+        margin-top: 4px;
+        margin-bottom: 24px;
+        text-align: center;
+        font-size: 26px;
+        line-height: 28px;
+        font-weight: 900;
+        @include for-pad{
+            margin-top: 7px;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        @include for-mobile{
+            margin-bottom: 8px;
+            font-size: 20px;
+            line-height: 26px;
+        }
+
+    }
+    .other_tp_body{
+        display: flex;
+        flex-flow:row wrap;
+        justify-content:space-between;
+        .tp{
+            width: calc(100%/4 - 22px);
+            height: 180px;
+            background-color: lightblue;
+            @include for-lowdesc{
+                height: 140px;
+            }
+            @include for-pad{
+                height: 141px;
+            }
+            @include for-mobile{
+                width: calc(100%/2 - 5px);
+                margin-bottom: 14px;
+                height: 105px;
+            }
+        }
+    }
+}
+.object_form2{
+    background: url("/img/topbanket/callbackform2back.png");
+    background-repeat: no-repeat;
+    background-position: left;
+    margin-bottom: 80px;
+    @include for-lowdesc{
+        background: url(/img/topbanket/callbackform2backlow.png);
+        width: 930px;
+        margin: 0 auto 68px;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: 50px auto 0;
+    }
+}
+.object_other_pl{
+    position: relative;
+    @include for-lowdesc{
+        width: 930px;
+        margin: 0 auto 32px;
+    }
+    @include for-pad{
+        width: 690px;
+        margin: 46px auto 22px;
+    }
+
+    .other_pl_title{
+        margin-bottom: 27px;
+        text-align: center;
+        font-size: 23px;
+        line-height: 28px;
+        font-weight: 900;
+        @include for-pad{
+            margin-bottom: 15px;
+            font-size: 21px;
+        }
+        @include for-mobile{
+            margin-bottom: 58px;
+            font-size: 21px;
+            line-height: 22px;    
+        }
+    }
+    .btn_slider_panel{
+        right: 0;
+        top: 0;
+        @include for-pad{
+            width: 66px;
+            height: 30px;
+        }
+        @include for-mobile{
+            top: 32px;
+            width: 70px;
+            height: 28px;
+        }
+        .slider_btn{
+            @include for-pad{
+                padding: 6px 0;
+                width: 30px;
+                height: 100%;
+            }
+            @include for-mobile{
+                padding: 4px 0;
+                width: 32px;
+                height: 30px;
+            }
+        }
+    }
+    .other_pl_body{
+        display: flex;
+        flex-flow:row wrap;
+        justify-content:space-between;
+        .pl{
+            width: 570px;
+            height: 496px;
+            background-color: lightblue;
+            @include for-lowdesc{
+                width: calc(100%/2 - 15px);
+            }
+            @include for-pad{
+                width: 48%;
+                height: 495px;
+            }
+        }
+    }
+}
+.btn_slider_panel{
+    width: 96px;
+    height: 40px;
+    position: absolute;
+    display: flex;
+    justify-content:space-between;
+    .slider_btn{
+        padding: 10px 0 10px;
+        text-align: center;
+        width: 43px;
+        height: 40px;
+        background-color: #F6F6F6;
+        &:hover{
+            background-color: #BCCB0E;
+        }
+    }
+}
+.book_container{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 93px;
+    @include for-pad{
+        height: 74px;
+    }
+    @include for-mobile{
+        height: 35px;
+    }
+}    
+.object_book{
+    display: flex;
+    align-items: center;
+    background-color: #BCCB0E;
+    border-radius: 5px;
+    padding: 13px 27px 12px;
+    @include for-pad{
+        padding: 7px 12px 7px 14px;
+    }
+    @include for-mobile{
+        padding: 7px 16px 9px 12px;
+        margin-bottom: 11px;
+    }
+    .show_number{
+        font-size: 16px;
+        line-height: 19px;
+        font-weight: 700;
+        color: rgba(35, 35, 35, 1);
+        border-bottom: 1px dashed #232323;
+        cursor: pointer;
+        @include for-pad{
+            font-size: 12px;
+            margin-right: 5px;
+        }
+        @include for-mobile{
+            font-size: 12px;
+            line-height: 11px;
+        }
+    }
+    .object_book_text{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+    }
+    .object_real_phone{
+        display: none;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 22px;
+        @include for-pad{
+            font-size: 15px;               
+        }
+        @include for-mobile{
+            font-size: 14px;
+        }
+    }
+    .object_book_phone{
+        margin-right: 28px;
+        @include for-pad{
+            margin-right: 16px;
+        }
+        @include for-mobile{
+            margin-right: 14px;
+        }
+        .object_fake_phone{
+            font-size: 19px;
+            line-height: 22px;
+            font-weight: 700;
+            @include for-pad{
+                font-size: 13px;               
+            }
+            @include for-mobile{
+                font-size: 14px;
+            }
+            .object_fake_phone_snowflakes{
+                font-size: 19px;
+                line-height: 22px;
+                font-weight: 700;
+                @include for-pad{
+                    font-size: 15px;               
+                }
+                @include for-mobile{
+                    font-size: 15px;
+                }
+            }
+        }
+
+
+    }
+    &._active{
+
+            .object_book_phone{
+
+                .object_fake_phone{
+                    display: none;
+                }
+
+                .object_real_phone{
+                    display: block;
+                }
+            }
+
+            .object_book_hidden_button{
+                display: none;
+                font-size: 18px;
+                line-height: 19px;
+
+            }
+
+            @include for-mobile{
+                //height: 51px;
+            }
+        }
+    .object_book_hidden{
+        position: relative;
+        margin-top: 6px;
+        display: flex;
+        flex-flow: column wrap;
+
+        
+
+
+        .object_book_interactive_part{
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+
+            &._hide{
+                display: none;
+            }
+        }
+
+        .object_book_hidden_button{
+            cursor: pointer;
+            position: absolute;
+            top: 7px;
+            right: 8px;
+            width: 137px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 18px;
+            margin: 0px 0px 2px;
+            @include for-mobile{
+                position: static;
+            }
+
+        }
+
+        .object_book_send_mail{
+            cursor: pointer;
+            padding: 8px 0 0 0;
+            line-height: 18px;
+
+            .show_form_message_mobile{
+                display: none;
+            }
+
+            @include for-mobile{
+                width: auto;
+
+                .show_form_message_mobile{
+                    display: inline;
+                }
+
+                    border: none;
+                    background-image: linear-gradient(90deg, white 50%, white 100%),
+                                    linear-gradient(90deg, rgba(216, 54, 3, 0.5) 50%, white 100%),
+                                    linear-gradient(90deg, white 50%, white 100%),
+                                    linear-gradient(90deg, rgba(216, 54, 3, 0.5) 50%, white 100%);
+                    background-size: 300px 1px, 5px 1px, 320px 1px, 5px 1px;
+                    background-repeat: no-repeat, repeat-x, no-repeat, repeat-x;
+                    background-position: 240px 60%, 0% 60%, 100px 100%, 0% 100%;
+            }
+        }
+
+        .send_restaurant_info{
+            padding: 18px 0 0 0;
+
+            input{
+                padding: 7px 16px;
+                background: white;
+                box-shadow: inset 0px 1px 2px rgba(140, 140, 140, 0.5);
+                border-radius: 2px;
+                font-size: 16px;
+                line-height: 26px;
+            }
+
+            ._button{
+                margin-left: 15px;
+                padding: 8px 20px 10px;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+            }
+
+            @include for-mobile{
+
+                input{
+                    width: 100%;
+                }
+
+                ._button{
+                    width: 100%;
+                    margin: 15px 0 0 0;
+                }
+            }
+        }
+
+        .object_book_mail_sent{
+            padding: 7px 0 3px 0;
+
+            ._link{
+                cursor: pointer;
+                line-height: 26px;
+            }
+        }
+
+        .object_book_message{
+            padding: 0 0 3px 0;
+            font-weight: bold;
+            line-height: 23px;
+        }
+
+        @include for-mobile{
+            flex-flow: column nowrap;
+            align-items: flex-start;
+        }
+    }
+
+    .object_book_action{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        padding: 10px 0 0 43px;
+        background-image: url("/img/gift.svg");
+        background-position: 0px 65%;
+        background-size: 30px;
+        background-repeat: no-repeat;
+        min-height: 37px;
+    }
+}
+.object_parameters_price_container{
+    margin-top: 11px;
+    @include for-lowdesc{
+    }
+    @include for-pad{
+        margin:0;
+        width: 88%;
+        text-align: center;
+    }
+    @include for-mobile{
+        margin-top: 29px;
+    }
+}
+.object_parameters_item_price{
+            display: inline;
+            font-size: 18px;
+            line-height: 26px;
+            color: rgba(231, 0, 76, 1);
+            border:1px solid rgba(231, 0, 76, 1);
+            border-radius: 5px;
+            padding: 10px 48px 11px;
+            @include for-lowdesc{
+                padding: 10px 7px 11px 8px;
+            }
+            @include for-pad{
+                display: block;
+            }
+            @include for-mobile{
+                padding: 10px 27px 11px;
+                font-size: 15px;
+            }
+            .price_highlight{
+                margin-left: 7px;
+                font-weight: 900;
+            }
+}
+.object_parameters{
+    @include for-lowdesc{
+        padding-left:  0px;
+    }
+    @include for-pad{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+    }
+    .object_parameter{
+        width: 90%;
+        @include for-pad{
+            width: 49%;
+        }
+    }
+    .object_parameters_list{
+        padding-left: 30px;
+        width: 344px;
+        margin-top: 57px;
+        margin-left: 3px;
+        display: flex;
+        flex-flow: column nowrap;
+        @include for-lowdesc{
+            margin-top: 76px;
+            padding-left: 18px;
+        }
+        @include for-pad{
+            width: 100%;
+            display: flex;
+            flex-flow:row nowrap;
+            justify-content:space-between;
+            padding-left: 17px;
+            margin-top: -3px;
+            margin-left: 0px;
+        }
+        @include for-mobile{
+            padding-left: 0px;
+            width: 100%;
+        }
+        .object_parameters_title{
+            font-weight: 700;
+            font-size: 16px;
+            line-height: 19px;
+            margin-top: 22px;
+        }
+
+        .object_parameters_item{
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 19px;
+            margin-right: 5px;
+        }
+
+        .object_parameters_items{
+            display: flex;
+            flex-flow: row wrap;
+            margin-bottom: 25px;
+             //height: 100px;
+             @include for-lowdesc{
+                margin-bottom: 32px;
+             }
+        } 
+    }
+    .object_parameters_list_top{
+        width: 344px;
+        margin-top: 40px;
+        padding-left: 30px;
+        @include for-lowdesc{
+            padding-left: 22px;
+        }
+        @include for-pad{
+            display: flex;
+            flex-flow: row wrap;
+            width: 100%;
+            justify-content:space-between;
+            padding-left: 15px;
+            margin-top: 0px; 
+
+        }
+        @include for-mobile{
+            margin-top: 30px;
+            padding-left: 0px;
+            width: 100%;
+        }
+        .item_container{
+            margin-top: 20px;
+            display: flex;
+            flex-flow: row nowrap;
+            @include for-lowdesc{
+                width: 270px;
+            }
+            @include for-pad{
+                width:calc(49% - 5px);
+                margin-bottom: 26px;
+            }
+            .img_container{
+                width: 35px;
+                height: 25px;
+            }
+        }    
+        .object_parameters_item_rooms{
+            .object_parameters_item{
+                padding-left: 16px;
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 19px;
+                margin-bottom: 10px;
+            }
+        }
+        .object_parameters_item{
+            padding-left: 16px;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+        }
+        .object_parameters_items{
+            display: flex;
+            flex-flow: row wrap;
+             //height: 100px;
+        } 
+    }
+
+
+
+
+
+    @include for-mobile{
+        width: 100%;
+    }
+}
+
+.object_gallery._room{
+    position: static;
+}
+
+.room_card_wrapper{
+    display: flex;
+    position: relative;
+    flex-flow: row nowrap;
+    justify-content: center;
+    padding: 60px 0 30px;
+
+    &:nth-child(odd){
+        .room_card{
+            order: 2;
+        }
+
+        .room_card:before{
+            content: "";
+            position: absolute;
+            top: -30px;
+            right: calc(50% - 72px);
+            width: 144px;
+            height: 144px;
+            background: url("/img/korporativ-ng/hall_Ball.png");
+        }
+    }
+
+
+    .room_card{
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        position: relative;
+        width: 448px;
+        height: 408px;
+        border: 1px solid #FFC839;
+        box-sizing: border-box;
+        border-radius: 5px;
+        margin: 36px 60px 0;
+        padding: 100px 50px 0;
+        box-shadow: 0px 5px 20px rgba(47, 61, 2, 0.1);
+        background: white;
+
+        & > h2{
+            padding-bottom: 20px;
+        }
+
+        .room_card_content{
+            display: flex;
+            flex-flow: row wrap;
+
+            ._subheader._mobile{
+                display: none;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 23px;
+                text-align: center;
+                color: #333333;
+            }
+
+            p{
+                font-style: normal;
+                font-weight: 500;
+                font-size: 14px;
+                line-height: 22px;
+                color: #333333;
+                padding-bottom: 30px;
+
+                ._subheader{
+                    font-size: 14px;
+                    color: #333333;
+                }
+    
+                span{
+                    font-size: 20px;
+                    color: black;
+                }
+            }
+
+            :nth-child(3n+2){
+                padding-right: 10px;
+            }
+
+            @include for-mobile{
+                
+                p{
+                 width: 50%;
+
+                 span{
+                     font-size: 16px;
+                 }
+                }
+
+                ._subheader._mobile{
+                    display: block;
+                    width: 100%;
+                    padding-bottom: 5px;
+                }
+
+                ._subheader{
+                    display: none;
+                }
+
+
+
+            }
+        }
+
+        a{
+            position: relative;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 20px;
+            border-bottom: 1px dashed #D83603;
+
+            &:before{
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: -30px;
+                width: 20px;
+                height: 20px;
+                background: url("/img/calendar_icon.svg");
+            }
+
+            &:hover:before,
+            &._active:before{
+                background: url("/img/calendar_icon_active.svg");
+              }
+        }
+
+        .calendar_wrapper{
+            position: relative;
+        }
+    }
+
+
+    @include for-notdesc{
+        flex-flow: column nowrap;
+        background: none;
+
+        &:nth-child(odd){
+            .room_card{
+                order: 0;
+            }
+        }
+
+        .room_card{
+            width: 100%;
+            height: auto;
+        }
+
+        .object_gallery._room{
+
+            .object_gallery_main{
+                width: 100%;
+            }
+        }
+    }
+
+    @include for-pad{
+        flex-flow: column nowrap;
+        align-items: center;
+        padding: 60px 10px 30px;
+
+        .room_card{
+            padding: 100px 30px 25px;
+            margin: 0 0 20px;
+        }
+        .object_gallery._room{
+            width: 710px;
+        }
+
+    }
+
+    @include for-mobile{
+        padding: 30px 15px 0;
+
+        .object_gallery._room{
+            width: 100%;
+        }
+
+        .room_card{
+            padding: 20px 15px 20px 15px;
+            margin: 0 0 30px;
+            height: auto;
+
+            & > h2{
+                font-size: 28px;
+                line-height: 32px;
+            }
+        }
+
+        &:nth-child(odd){
+
+            .room_card{
+
+                &:before{
+                    content: none;
+                }
+            }
+        }
+
+        &:nth-child(even){
+
+            .room_card{
+
+                &:before{
+                    content: none;
+                }
+            }
+        }
+    }
+
+    
+}
+
+._hide{
+    display: none;
+}
+
+.form_wrapper{
+    
+    .calendar_container{
+        top: 78px;
+        left: 0;
+
+        @include for-mobile{
+            top: 65px;
+            left: -20px;
+
+            .calendar:before{
+                left: 242px;
+            }
+        }
+    }
+}
+
+.content_block.form_booking_wrapper{
+    margin: 0;
+    padding-bottom: 160px;
+    width: 100%;
+    overflow: hidden;
+    //background: url("/img/index_page_form_star_bg.png");
+
+    @include for-pad{
+
+        &:before{
+            top: 260px;
+            left: 0;
+        }
+
+        &:after{
+            top: 270px;
+            right: 0;
+        }
+    }
+
+    @include for-mobile{
+        padding: 30px 15px;
+
+        &:before{
+            content: none;
+        }
+
+        &:after{
+            content: none;
+        }
+    }
+}
+
+.object_book_email{
+    margin-top: 8px;
+
+    ._pseudolink{
+        display: inline;
+    }
+
+    &._form{
+
+        .object_book_email_text,
+        .object_book_email_success{
+            display: none;
+        }
+
+        .object_book_email_form{
+            display: block;
+        }
+    }
+
+    &._success{
+
+        .object_book_email_text,
+        .object_book_email_form{
+            display: none;
+        }
+
+        .object_book_email_success{
+            display: block;
+        }
+    }
+
+    .object_book_email_text{
+
+    }
+
+    .object_book_email_form{
+        display: none;
+        margin-top: 13px;
+        justify-content: space-between;
+
+        .form_block{
+            margin-top: 0px;
+        }
+
+        .input_wrapper{
+            width: calc(100% - 8px);
+            input{
+                background: white;
+            }
+        }
+
+        .object_book_email_button{
+            width: calc(40% - 8px);
+            line-height: 40px;
+            text-align: center;
+        }
+
+
+        @include for-mobile{
+            .form_block{
+                flex-direction: column;
+
+                .form_inputs{
+                    width: 100%;
+                }
+            }
+
+            .input_wrapper{
+                width: 100%;
+                margin-right: 0px;
+            }
+
+            .object_book_email_button{
+                width: 100%;
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .object_book_email_success{
+        display: none;
+
+        .object_book_email_success_text{
+
+        }
+
+        .object_book_email_success_reload{
+
+        }
+    }
+}
