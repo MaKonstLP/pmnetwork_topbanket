@@ -290,8 +290,9 @@ body._overflow .main_wrap{
         }
     }
 .after_listing{
-    margin: 70px auto -7px;
-    width: 1170px;
+    margin: 0px auto 0px;
+
+    width: 1170px; 
     @include for-lowdesc{
         width: 930px;
     }
@@ -367,7 +368,7 @@ body._overflow .main_wrap{
 .state_block{
     margin: -5px auto 0;
     width:1170px;
-    display: none;
+    display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     .state{
@@ -782,7 +783,7 @@ body._overflow .main_wrap{
         }
     }
     .btn_container{
-        margin: 7px auto 50px;
+        margin: 7px auto 68px;
         @include for-lowdesc{
             margin-top: 6px;
             margin-bottom: 68px;
@@ -973,7 +974,7 @@ body._overflow .main_wrap{
     align-items: center;
     position: relative;
     width: 1170px;
-    margin: 75px auto 75px ;
+    margin: 67px auto 75px ;
     background: url("/img/topbanket/callbackform2back.png");
     background-repeat: no-repeat;
     background-position: left;

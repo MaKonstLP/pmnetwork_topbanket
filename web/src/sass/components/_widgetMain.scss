@@ -68,6 +68,7 @@
                     .info_tab_title{
                         font-size:12px;
                         font-weight: 400;
+                        color:rgba(35, 35, 35, 0.5);
                     }
                     .info_tab_text{
                         font-size: 14px;
@@ -88,7 +89,7 @@
                     .info_tab_img{
                     }
                     .item_info_top{
-                        align-items: baseline;
+                        align-items: flex-start;
                         width: 100%;
                         justify-content: space-between;
                         display: flex;
@@ -160,13 +161,19 @@
                             margin-bottom: 21px;
                         }
                         .info_tab_img{
-                            height: 30px;
+                            height: 25px;
                             width: 35px;
                             align-items:center;
                             @include for-pad{
                                 margin-right: 13px;
                             }
-                        }                        
+                        } 
+                        .info_tab_img_high{
+                            height: 30px;
+                        }                       
+                    }
+                    .dis_margin_bottom{
+                        margin-bottom: 0px;
                     }
                     .info_tab_Kitchen{
                         display: flex;
@@ -204,6 +211,7 @@
                         font-weight: 700;
                         font-size: 14px;
                         line-height: 17px;
+                        top:0;
                     }
 
                     .item_horizontal_raw{

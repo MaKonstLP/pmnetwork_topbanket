@@ -86,7 +86,7 @@ export default class Main{
 
 			$popup.removeClass("_hide");
 			$(body).addClass("_modal_active");
-			ym(66603799,'reachGoal','headerlink')
+			//ym(66603799,'reachGoal','headerlink')
 		}
 	}
 

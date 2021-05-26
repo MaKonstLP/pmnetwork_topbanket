@@ -93,6 +93,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                                     <p class='checkbox_pseudo'>$city->name</p>
                                                     </div>";
                                     }
+                                    else{
+                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://korporativ-ng.ru'>
+                                                    <input type='checkbox' name='city' class='personalData' checked='' data-required>
+                                                    <p class='checkbox_pseudo'>$city->name</p>
+                                                    </div>";
+                                    }
                                     return $newLine;
                                 }
 
