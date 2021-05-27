@@ -67,17 +67,20 @@
             <div class="object_gallery" data-gallery data-id="{{item.restaurant_id}}">
 
                 <div class="swiper-container gallery-top">
-                    <img src="{{item.restaurant_images[0].subpath}}">
-                </div>
-                <div class="gallery_counter">
-                    <span class="gallery_counter_current">1</span>/ {{item.restaurant_images|length}}
-                </div>
-                <div class="btn_slider_panel">
-                     <div class="slider_btn">
-                      ←
+                    
+                     <div class="swiper-wrapper">
+                     {% for slide in item.restaurant_images %}
+                        <div class="swiper-slide"><img src="{{slide.subpath}}" alt=""></div>
+                     {% endfor %}
                     </div>
-                    <div class="slider_btn">
-                        →
+                </div>
+                <div class="gallery_counter top_gallery_counter"> </div>
+                <div class="btn_slider_panel">
+                     <div class="slider_btn slider_btn_prev">
+                      <img src="/img/topbanket/arrow_swiper_l.svg" alt="">
+                    </div>
+                    <div class="slider_btn slider_btn_next">
+                        <img src="/img/topbanket/arrow_swiper_l.svg" alt="">
                     </div>
                 </div>
             </div>
@@ -131,23 +134,22 @@
                 {% for room in item.rooms %}
                     <div class="room">
                         <div class="room_gallery">
-                            <div class="gallery_img">
-                                <!--{% for image in room.images %}
-                                    <img src="{{image.subpath}}">
-                                {% endfor %}-->
-                                <img src="{{room.images[0].subpath}}">
+                        <div class="swiper-container room_swiper_container">
+                            <div class="swiper-wrapper">
+                                {% for image in room.images %}
+                                <div class="swiper-slide"><img src="{{image.subpath}}" alt=""></div>
+                                {% endfor %}
                             </div>
-                            <div class="gallery_counter">
-                                <span class="gallery_counter_current">1</span>/{{room.images|length}}
-                            </div>
-                            <div class="btn_slider_panel">
-                                <div class="slider_btn">
-                                    ←
-                                </div>
-                                <div class="slider_btn">
-                                    →
-                                </div>
-                            </div>
+                        </div>
+                            <div class="gallery_counter room_gallery_counter"></div>
+                      <div class="btn_slider_panel">
+                     <div class="slider_btn room_slider_btn_prev">
+                      <img src="/img/topbanket/m_arrow_l.svg" alt="">
+                    </div>
+                    <div class="slider_btn room_slider_btn_next">
+                        <img src="/img/topbanket/m_arrow_l.svg" alt="">
+                    </div>
+                </div>
                         </div>
                         <div class="room_info">
                             <div class="room_title">

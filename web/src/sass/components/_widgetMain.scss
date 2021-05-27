@@ -47,6 +47,19 @@
         height: 100%;
         object-fit: cover;
       }
+      .img_mask {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            0deg,
+            rgba(35, 35, 35, 0.5),
+            rgba(35, 35, 35, 0.5)
+          ),
+          url(image.png);
+      }
     }
 
     .item_info_container {
@@ -90,8 +103,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-      }
-      .info_tab_img {
       }
       .item_info_top {
         align-items: flex-start;
@@ -245,9 +256,6 @@
         .item_meta_label {
           font-size: 12px;
           font-weight: 400;
-        }
-
-        .item_meta_text {
         }
 
         &:last-child {

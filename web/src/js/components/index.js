@@ -13,6 +13,7 @@ export default class Index{
 		$('[data-filter-button]').on('click', function(){
 			self.redirectToListing();
 		});
+
 	}
 
 	redirectToListing(){
