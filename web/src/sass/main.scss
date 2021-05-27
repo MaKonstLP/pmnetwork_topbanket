@@ -393,6 +393,16 @@ body._overflow .main_wrap {
       .state_text {
         font-size: 16px;
       }
+      a {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 14px;
+      }
+      a::after {
+        content: url("/img/topbanket/arrow_right.svg");
+        padding: 0px 0px 0px 8px;
+      }
     }
     .state_first {
       background-color: rgba(35, 35, 35, 1);
