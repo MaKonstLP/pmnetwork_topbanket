@@ -102,9 +102,31 @@ export default class Item{
 	// 	});
 
 	// 	console.log(this.sliders);
-			
+	
+	// document.querySelectorAll('.item_page_wrapper').forEach(n => {
+	// 	const slider = new Swiper(n.querySelector('.swiper-container'), {
+	// 		navigation: {
+	// 			nextEl: n.querySelector('.swiper-button-next'),
+	// 			prevEl: n.querySelector('.swiper-button-prev'),
+	// 		},
+	// 		// spaceBetween: 10,
+	// 	});
+	
+	// 	const thumbs = new Swiper(n.querySelector('.swiper-container'), {
+	// 		// spaceBetween: 5,
+	// 		// centeredSlides: true,
+	// 		// slidesPerView: 4,
+	// 		// touchRatio: 0.2,
+	// 		// slideToClickedSlide: true,
+	// 		// direction: 'vertical',
+	// 	});
+	
+	// 	slider.controller.control = thumbs;
+	// 	thumbs.controller.control = slider;
+	// });
 
-	let swiper = new Swiper('.swiper-container', {
+
+	let swiper = new Swiper('.gallery-top', {
 		pagination: {
 			el: '.top_gallery_counter',
 			type: 'fraction',
@@ -114,6 +136,7 @@ export default class Item{
 			prevEl: '.slider_btn_prev',
 		},
 	});
+
 	let swiper1 = new Swiper('.room_swiper_container', {
 		pagination: {
 			el: '.room_gallery_counter',
@@ -123,7 +146,13 @@ export default class Item{
 			nextEl: '.room_slider_btn_next',
 			prevEl: '.room_slider_btn_prev',
 		},
+		on:{
+			activeIndexChange: function () {
+				console.log(this.isBeginning, this.isEnd);
+				console.log(this.el)
+			},
+		}
 	});
-	}
 
-}
+	}
+ }

@@ -218,6 +218,7 @@
       }
     }
   }
+
   .swiper-container {
     width: 100%;
     height: 300px;
@@ -517,6 +518,19 @@
         position: relative;
         width: 470px;
         height: 326px;
+        .swiper-container {
+          position: unset;
+        }
+        .swiper-slide {
+          background-size: cover;
+          background-position: center;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
         .room_swiper_container {
           height: 312px;
         }
@@ -854,10 +868,10 @@
     text-align: center;
     width: 43px;
     height: 40px;
-    background-color: #f6f6f6;
-    &:hover {
-      background-color: #bccb0e;
-    }
+    background-color: #bccb0e;
+  }
+  .swiper-button-disabled {
+    background-color: #f6f6f6 !important;
   }
 }
 .book_container {
