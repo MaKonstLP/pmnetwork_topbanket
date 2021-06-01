@@ -18,6 +18,8 @@ export default class Filter{
 
 		//КЛИК ПО СТРОКЕ В СЕЛЕКТЕ
 		this.$filter.find('[data-filter-select-item]').on('click', function(){
+			self.selectStateClear($(this).closest('[data-filter-select-block]'));
+			
 			$(this).toggleClass('_active');
 			self.selectBlockActiveClose();
 			self.selectStateRefresh($(this).closest('[data-filter-select-block]'));
@@ -175,6 +177,21 @@ export default class Filter{
 		}
 
 		$block.find('[data-filter-select-current] p').text(selectText);
+	}
+
+	selectStateClear($block){
+		let self = this;
+		let blockType = $block.data('type');		
+		let $items = $block.find('[data-filter-select-item]._active');
+
+
+		if($items.length > 0){
+			self.state[blockType] = '';
+			$items.each(function(){
+				$items.removeClass("_active");
+			});
+		}
+
 	}
 
 	checkboxStateRefresh($item){
