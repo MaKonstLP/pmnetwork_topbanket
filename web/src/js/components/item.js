@@ -3,10 +3,15 @@ import Swiper from 'swiper';
 import 'slick-carousel';
 import * as Lightbox from '../../../node_modules/lightbox2/dist/js/lightbox.js';
 
+
+import YaMapSingleObject from './mapSingleObject';
+
+
 export default class Item{
 	constructor($item){
 		var self = this;
 		this.sliders = new Array();
+		this.YaMapSingleObject = new YaMapSingleObject();
 
 		$('[data-action="show_phone"]').on("click", function(){
 			$(".object_book").addClass("_active");
@@ -50,6 +55,16 @@ export default class Item{
             $(this).closest('.object_book_email').addClass('_form');
         })
 
+				
+		$('[data-action="open_map"]').on("click", function(){
+			// $(".object_book").addClass("_active");
+			// $(".object_book_hidden").addClass("_active");
+			// $(".object_book_interactive_part").removeClass("_hide");
+			// $(".object_book_send_mail").removeClass("_hide");
+			// ym(66603799,'reachGoal','showphone');
+			// dataLayer.push({'event': 'event-to-ga', 'eventCategory' : 'Search', 'eventAction' : 'ShowPhone'});
+
+		});
 
 	// 	var galleryThumbs = new Swiper('.gallery-thumbs', {
 	// 		spaceBetween: 10,
@@ -126,6 +141,7 @@ export default class Item{
 	// });
 
 
+
 	let swiper = new Swiper('.gallery-top', {
 		pagination: {
 			el: '.top_gallery_counter',
@@ -146,13 +162,25 @@ export default class Item{
 			nextEl: '.room_slider_btn_next',
 			prevEl: '.room_slider_btn_prev',
 		},
-		on:{
-			activeIndexChange: function () {
-				console.log(this.isBeginning, this.isEnd);
-				console.log(this.el)
-			},
-		}
+		// on:{
+		// 	activeIndexChange: buttonsHandler,
+		// 	init: buttonsHandler,
+
+		// }
 	});
 
+	var $inputs = $(".header_form_popup .input_wrapper");
+
+		//for (var input of $inputs){
+		//	if( $(input).find("[name='email']").length !== 0
+		//	||  $(input).find("[name='question']").length !== 0 ) {
+		//		$(input).addClass("_hide");
+		//	}
+		//}
+
+		$(".header_form_popup .form_title_main").text("Помочь с выбором зала?");
+		$(".header_form_popup .form_title_desc").addClass("_hide");
 	}
+
+	
  }

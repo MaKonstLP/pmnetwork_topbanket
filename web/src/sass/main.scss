@@ -1330,14 +1330,43 @@ h3 {
       flex-direction: column;
       margin-bottom: 14px;
     }
-    a {
+    // a {
+    //   margin-left: 11px;
+    //   text-align: center;
+    //   font-weight: 500;
+    //   font-size: 16px;
+    //   line-height: 19px;
+    //   color: rgba(231, 0, 76, 1);
+    //   border-bottom: 1px dashed #e7004c;
+    //   position: relative;
+    //   cursor: pointer;
+    //   @include for-lowdesc {
+    //     margin-left: 3px;
+    //     font-size: 14px;
+    //   }
+    //   @include for-pad {
+    //     margin-left: 11px;
+    //     font-size: 12px;
+    //   }
+    //   @include for-mobile {
+    //     margin-left: 0;
+    //     text-align: left;
+    //     font-size: 12px;
+    //     line-height: 16px;
+    //     margin-bottom: -2px;
+    //     width: 46%;
+    //   }
+    //   &:hover {
+    //     border: transparent;
+    //   }
+    button {
       margin-left: 11px;
       text-align: center;
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
-      color: rgba(231, 0, 76, 1);
-      border-bottom: 1px dashed #e7004c;
+      color: rgba(231, 0, 76, 1) !important;
+      border-bottom: 1px dashed #e7004c !important;
       position: relative;
       cursor: pointer;
       @include for-lowdesc {
@@ -1354,7 +1383,7 @@ h3 {
         font-size: 12px;
         line-height: 16px;
         margin-bottom: -2px;
-        width: 46%;
+        // width: 46%;
       }
       &:hover {
         border: transparent;

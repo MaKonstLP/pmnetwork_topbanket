@@ -57,6 +57,7 @@ export default class Main{
 		$(".header_phone_button").on("click", this.helpWhithBookingButtonHandler);
 		$(".footer_phone_button").on("click", this.helpWhithBookingButtonHandler);
 		$(".header_form_popup").on("click", this.closePopUpHandler);
+		$(".cross_city_select").on("click", this.closeCitySelectHandler);
 		$('.header_burger').on('click', this.burgerHandler);
 		$(".header_city_select").on("click", this.citySelectHandler);
 		$(document).mouseup(this.closeCitySelectHandler);
@@ -148,7 +149,7 @@ export default class Main{
 		var $target = $(e.target);
 		var $button = $(".header_city_select");
 		var $cityList = $(".city_select_search_wrapper");
-		var $backButton = $(".back_to_header_menu");
+		var $backButton = $(".cross_city_select");
 
 		if( !$button.is($target)
 		&& $button.has($target).length === 0

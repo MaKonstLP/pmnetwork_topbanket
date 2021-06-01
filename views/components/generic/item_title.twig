@@ -10,7 +10,20 @@
 	<div class="title_address">
 		<span data-title-address>{{seo.address}}</span>
 		<div>
-			<a href="">Посмотреть на карте</a>
+			<button data-action="open_map">Посмотреть на карте</button>
+      
+                <div class="city_select_search_wrapper _hide">
+                        <div class="cross_city_select"></div>                       
+                        <h4>Выберите город</h4>
+                             <div class="city_select_list">
+
+                           
+                        <button class="Red">ВЫБРАТЬ</button>
+                        </div>
+                        
+
+                    </div>
+			{# <a href="">Посмотреть на карте</a> #}
 		</div>	
 	</div>	
 	<div class="item_gift-for-early-reservation"> за бронирование</div>
@@ -27,3 +40,5 @@
 		<div class="show_number" data-action="show_phone">Показать номер</div>                          
 	</div>                
 </div>
+
+	{# <div class="content_block map listing" data-map-api-subid="{{ subid }}"></div> #}

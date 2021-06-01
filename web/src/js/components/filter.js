@@ -19,6 +19,7 @@ export default class Filter{
 		//КЛИК ПО СТРОКЕ В СЕЛЕКТЕ
 		this.$filter.find('[data-filter-select-item]').on('click', function(){
 			$(this).toggleClass('_active');
+			self.selectBlockActiveClose();
 			self.selectStateRefresh($(this).closest('[data-filter-select-block]'));
 		});
 

@@ -172,10 +172,25 @@ export default class YaMapAll{
 						clusterize: true,
 						clusterDisableClickZoom: false,
 						clusterBalloonItemContentLayout: myBalloonContentLayout,
-						clusterIconColor: "green",
-						geoObjectIconColor: "green"
+						clusterIconColor: "#E7004C",
+						geoObjectIconColor: "#E7004C",
+						// clusterIconImageHref: '/img/topbanket/map_icon.svg',
+						// iconImageSize: [40, 40],
 					}
 				);
+				objectManager.objects.options.set({
+					      // Указываем тип макета
+					      iconLayout: 'default#imageWithContent',
+					      // Добавляем своё изображение иконки метки
+					      iconImageHref: '/img/topbanket/map_icon.svg',
+					      // Указываем размеры метки
+					      iconImageSize: [40	, 50],
+					      // Изменяем положение левого верхнего угла иконки относительно её точки привязки
+					      iconImageOffset: [-20, -50],
+					      // Не скрывать метку при открытии балуна
+					      hideIconOnBalloonOpen: false,
+					    });
+
 
 				let serverData = null;
 				let data = {
