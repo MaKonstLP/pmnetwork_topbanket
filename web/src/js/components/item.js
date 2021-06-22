@@ -38,12 +38,12 @@ export default class Item{
 		});
 
 		$('[data-title-address]').on('click', function(){
-            let map_offset_top = $('.map').offset().top;
-            let map_height = $('.map').height();
-            let header_height = $('header').height();
-            let window_height = $(window).height();
-            let scroll_length = map_offset_top - header_height - ((window_height - header_height)/2) + map_height/2;
-            $('html,body').animate({scrollTop:scroll_length}, 400);
+            // let map_offset_top = $('.map').offset().top;
+            // let map_height = $('.map').height();
+            // let header_height = $('header').height();
+            // let window_height = $(window).height();
+            // let scroll_length = map_offset_top - header_height - ((window_height - header_height)/2) + map_height/2;
+            // $('html,body').animate({scrollTop:scroll_length}, 400);
         });
 
         $('[data-book-open]').on('click', function(){
@@ -56,15 +56,18 @@ export default class Item{
         })
 
 				
-		$('[data-action="open_map"]').on("click", function(){
-			// $(".object_book").addClass("_active");
-			// $(".object_book_hidden").addClass("_active");
-			// $(".object_book_interactive_part").removeClass("_hide");
-			// $(".object_book_send_mail").removeClass("_hide");
-			// ym(66603799,'reachGoal','showphone');
-			// dataLayer.push({'event': 'event-to-ga', 'eventCategory' : 'Search', 'eventAction' : 'ShowPhone'});
+		$('[data-action="show_phone"]').on("click", function(){
+			$(".object_book").addClass("_active");
+			$(".object_book_hidden").addClass("_active");
+			$(".object_book_interactive_part").removeClass("_hide");
+			$(".object_book_send_mail").removeClass("_hide");
+			ym(66603799,'reachGoal','showphone');
+			dataLayer.push({'event': 'event-to-ga', 'eventCategory' : 'Search', 'eventAction' : 'ShowPhone'});
 
 		});
+
+    // $(".header_phone_button").on("click", this.openMapHandler);
+
 
 	// 	var galleryThumbs = new Swiper('.gallery-thumbs', {
 	// 		spaceBetween: 10,
@@ -169,7 +172,7 @@ export default class Item{
 		// }
 	});
 
-	var $inputs = $(".header_form_popup .input_wrapper");
+	// var $inputs = $(".header_form_popup .input_wrapper");
 
 		//for (var input of $inputs){
 		//	if( $(input).find("[name='email']").length !== 0
@@ -178,9 +181,27 @@ export default class Item{
 		//	}
 		//}
 
-		$(".header_form_popup .form_title_main").text("Помочь с выбором зала?");
-		$(".header_form_popup .form_title_desc").addClass("_hide");
+		// $(".header_form_popup .form_title_main").text("Помочь с выбором зала?");
+		// $(".header_form_popup .form_title_desc").addClass("_hide");
+
+		$('[data-action="open_map"]').on("click", function(){
+			var $popup = $(".header_form_popup_map");
+			var body = document.querySelector("body");
+			if ($popup.hasClass("_hide")) {
+	
+				body.dataset.scrollY = self.pageYOffset;
+				body.style.top = `-${body.dataset.scrollY}px`;
+	
+				$popup.removeClass("_hide");
+				$(body).addClass("_modal_active");
+		
+			}
+		});
+
+		
 	}
 
+
+	
 	
  }

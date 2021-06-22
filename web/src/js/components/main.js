@@ -64,7 +64,7 @@ export default class Main{
 		//$(document).mouseup(this.closeBurgerHandler);
 	
 		/* Настройка формы в окне popup */
-		var $inputs = $(".header_form_popup .input_wrapper");
+		var $inputs = $(".header_form_popup_callback .input_wrapper");
 
 		//for (var input of $inputs){
 		//	if( $(input).find("[name='email']").length !== 0
@@ -73,12 +73,12 @@ export default class Main{
 		//	}
 		//}
 
-		$(".header_form_popup .form_title_main").text("Помочь с выбором зала?");
-		$(".header_form_popup .form_title_desc").addClass("_hide");
+		$(".header_form_popup_callback .form_title_main").text("Помочь с выбором зала?");
+		$(".header_form_popup_callback .form_title_desc").addClass("_hide");
 	}
 
 	helpWhithBookingButtonHandler() {
-		var $popup = $(".header_form_popup");
+		var $popup = $(".header_form_popup_callback");
 		var body = document.querySelector("body");
 		if ($popup.hasClass("_hide")) {
 

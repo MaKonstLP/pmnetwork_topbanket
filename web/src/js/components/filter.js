@@ -19,7 +19,6 @@ export default class Filter{
 		//КЛИК ПО СТРОКЕ В СЕЛЕКТЕ
 		this.$filter.find('[data-filter-select-item]').on('click', function(){
 			self.selectStateClear($(this).closest('[data-filter-select-block]'));
-			
 			$(this).toggleClass('_active');
 			self.selectBlockActiveClose();
 			self.selectStateRefresh($(this).closest('[data-filter-select-block]'));
@@ -157,7 +156,7 @@ export default class Filter{
 		let self = this;
 		let blockType = $block.data('type');		
 		let $items = $block.find('[data-filter-select-item]._active');
-		let selectText = '-';
+		let selectText;
 
 		if($items.length > 0){
 			self.state[blockType] = '';
@@ -179,6 +178,16 @@ export default class Filter{
 		$block.find('[data-filter-select-current] p').text(selectText);
 	}
 
+	checkboxStateRefresh($item){
+		let blockType = $item.closest('[data-type]').data('type');
+		if($item.hasClass('_checked')){
+			this.state[blockType] = $item.find('[data-value]').data('value');
+		}
+		else{
+			delete this.state[blockType];
+		}
+		console.log(this.state);
+	}
 	selectStateClear($block){
 		let self = this;
 		let blockType = $block.data('type');		
@@ -192,17 +201,6 @@ export default class Filter{
 			});
 		}
 
-	}
-
-	checkboxStateRefresh($item){
-		let blockType = $item.closest('[data-type]').data('type');
-		if($item.hasClass('_checked')){
-			this.state[blockType] = $item.find('[data-value]').data('value');
-		}
-		else{
-			delete this.state[blockType];
-		}
-		console.log(this.state);
 	}
 
 	inputStateRefresh(type, val){

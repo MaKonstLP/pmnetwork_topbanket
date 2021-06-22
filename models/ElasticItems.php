@@ -1,8 +1,13 @@
 <?php
 namespace frontend\modules\top_banket\models;
 
+use Yii;
 use common\models\Restaurants;
 use common\models\RestaurantsTypes;
+use common\models\RestaurantsSpec;
+use common\models\RestaurantsSpecial;
+use common\models\RestaurantsExtra;
+use common\models\RestaurantsLocation;
 use yii\helpers\ArrayHelper;
 use common\models\Subdomen;
 
@@ -27,6 +32,7 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             'restaurant_latitude',
             'restaurant_longitude',
             'restaurant_own_alcohol',
+            'restaurant_own_alcohol_id',
             'restaurant_cuisine',
             'restaurant_parking',
             'restaurant_extra_services',
@@ -34,10 +40,13 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             'restaurant_special',
             'restaurant_phone',
             'restaurant_images',
+            'restaurant_price',
             'restaurant_commission',
             'restaurant_types',
             'restaurant_location',
-            'restaurant_price',
+            'restaurant_spec',
+            'restaurant_specials',
+            'restaurant_extra',
             'rooms',
         ];
     }
@@ -75,6 +84,7 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
                     'restaurant_latitude'           => ['type' => 'text'],
                     'restaurant_longitude'          => ['type' => 'text'],
                     'restaurant_own_alcohol'        => ['type' => 'text'],
+                    'restaurant_own_alcohol_id'     => ['type' => 'integer'],
                     'restaurant_cuisine'            => ['type' => 'text'],
                     'restaurant_parking'            => ['type' => 'integer'],
                     'restaurant_extra_services'     => ['type' => 'text'],
@@ -86,8 +96,21 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
                         'id'                            => ['type' => 'integer'],
                         'name'                          => ['type' => 'text'],
                     ]],
-                    'restaurant_location'              => ['type' => 'nested', 'properties' =>[
+                    'restaurant_spec'               => ['type' => 'nested', 'properties' => [
                         'id'                            => ['type' => 'integer'],
+                        'name'                          => ['type' => 'text'],
+                    ]],
+                    'restaurant_specials'           => ['type' => 'nested', 'properties' =>[
+                        'id'                            => ['type' => 'integer'],
+                        'name'                          => ['type' => 'text'],
+                    ]],
+                    'restaurant_extra'           => ['type' => 'nested', 'properties' =>[
+                        'id'                            => ['type' => 'integer'],
+                        'name'                          => ['type' => 'text'],
+                    ]],
+                    'restaurant_location'           => ['type' => 'nested', 'properties' =>[
+                        'id'                            => ['type' => 'integer'],
+                        'name'                          => ['type' => 'text'],
                     ]],
                     'restaurant_images'             => ['type' => 'nested', 'properties' =>[
                         'id'                            => ['type' => 'integer'],
@@ -170,8 +193,18 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         $res = self::deleteIndex();
         $res = self::updateMapping();
         $res = self::createIndex();
+        $connection = new \yii\db\Connection([
+            'dsn'       => 'mysql:host=localhost;dbname=pmn_top_banket',
+            'username'  => 'root',
+            'password'  => 'Gkcfmdsop',
+            'charset'   => 'utf8mb4',
+        ]);
+        $connection->open();
+        Yii::$app->set('db', $connection);
+
         $restaurants = Restaurants::find()
             ->with('rooms')
+            //->with('rooms.images')
             ->with('images')
             ->with('subdomen')
             ->limit(100000)
@@ -182,19 +215,42 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             ->limit(100000)
             ->asArray()
             ->all();
-        //$subdomens = Subdomen::find()->all();
         $restaurants_types = ArrayHelper::index($restaurants_types, 'value');
+
+        $restaurants_specials = RestaurantsSpecial::find()
+            ->limit(100000)
+            ->asArray()
+            ->all();
+        $restaurants_specials = ArrayHelper::index($restaurants_specials, 'value');
+
+        $restaurants_extra = RestaurantsExtra::find()
+            ->limit(100000)
+            ->asArray()
+            ->all();
+        $restaurants_extra = ArrayHelper::index($restaurants_extra, 'value');
+
+        $restaurants_spec = RestaurantsSpec::find()
+            ->limit(100000)
+            ->asArray()
+            ->all();
+        $restaurants_spec = ArrayHelper::index($restaurants_spec, 'id');
+
+        $restaurants_location = RestaurantsLocation::find()
+            ->limit(100000)
+            ->asArray()
+            ->all();
+        $restaurants_location = ArrayHelper::index($restaurants_location, 'value');
         //echo '<pre>';
         //print_r($restaurants_types);
         //exit;
         foreach ($restaurants as $restaurant) {
-            $res = self::addRecord($restaurant, $restaurants_types);   
+            $res = self::addRecord($restaurant, $restaurants_types, $restaurants_spec, $restaurants_specials ,$restaurants_extra, $restaurants_location);
             $all_res .= $res.'<br><br><br><br><br><br><br><br><br><br><br><br>';
         }
         echo 'Обновление индекса '. self::index().' '. self::type() .' завершено<br>'.$all_res;
     }
 
-    public static function addRecord($restaurant, $restaurants_types){
+    public static function addRecord($restaurant, $restaurants_types, $restaurants_spec, $restaurants_specials ,$restaurants_extra, $restaurants_location){
         $isExist = false;
         
         try{
@@ -238,6 +294,7 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         $record->restaurant_latitude = $restaurant->latitude;
         $record->restaurant_longitude = $restaurant->longitude;
         $record->restaurant_own_alcohol = $restaurant->own_alcohol;
+        $record->restaurant_own_alcohol_id = $restaurant->alcohol;
         $record->restaurant_cuisine = $restaurant->cuisine;
         $record->restaurant_parking = $restaurant->parking;
         $record->restaurant_extra_services = $restaurant->extra_services;
@@ -259,6 +316,18 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         }
         $record->restaurant_images = $images;
 
+        //Тип мероприятия
+        $restaurant_spec = [];
+        $restaurant_spec_rest = explode(',', $restaurant->restaurants_spec);
+        foreach ($restaurant_spec_rest as $key => $value) {
+            $restaurant_spec_arr = [];
+            $restaurant_spec_arr['id'] = $value;
+            $restaurant_spec_arr['name'] = isset($restaurants_spec[$value]['name']) ? $restaurants_spec[$value]['name'] : '';
+            array_push($restaurant_spec, $restaurant_spec_arr);
+        }
+
+        $record->restaurant_spec = $restaurant_spec;
+
         //Тип помещения
         $restaurant_types = [];
         $restaurant_types_rest = explode(',', $restaurant->type);
@@ -279,6 +348,28 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             array_push($restaurant_location, $restaurant_location_arr);
         }
         $record->restaurant_location = $restaurant_location;
+
+        //Особенности
+        $restaurant_specials = [];
+        $restaurant_specials_rest = explode(',', $restaurant->special_ids);
+        foreach ($restaurant_specials_rest as $key => $value) {
+            $restaurant_specials_arr = [];
+            $restaurant_specials_arr['id'] = $value;
+            $restaurant_specials_arr['name'] = isset($restaurants_specials[$value]['text']) ? $restaurants_specials[$value]['text'] : '';
+            array_push($restaurant_specials, $restaurant_specials_arr);
+        }
+        $record->restaurant_specials = $restaurant_specials;
+
+        //Extra
+        $restaurant_extra = [];
+        $restaurant_extra_rest = explode(',', $restaurant->extra_services_ids);
+        foreach ($restaurant_extra_rest as $key => $value) {
+            $restaurant_extra_arr = [];
+            $restaurant_extra_arr['id'] = $value;
+            $restaurant_extra_arr['name'] = isset($restaurants_extra[$value]['text']) ? $restaurants_extra[$value]['text'] : '';
+            array_push($restaurant_extra, $restaurant_extra_arr);
+        }
+        $record->restaurant_extra = $restaurant_extra;
 
         //Св-ва залов
         $rooms = [];
@@ -305,7 +396,7 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
 
             //Картинки залов
             $images = [];
-            foreach ($room->images as $key => $image) {
+            foreach ($room->imagesnew as $key => $image) {
                 $image_arr = [];
                 $image_arr['id'] = $image->id;
                 $image_arr['sort'] = $image->sort;

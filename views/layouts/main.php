@@ -155,7 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                     </div>
 
-                <div class="header_form_popup _hide">
+                <div class="header_form_popup header_form_popup_callback _hide">
                     <div class="header_form_popup_content">
                     
                         <?= $this->render('../components/generic/form_callback.twig', ['type' => 'header']) ?>
@@ -172,6 +172,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                 </div>
+
+                <div class="header_form_popup header_form_popup_map _hide">
+                    <div class="header_form_popup_content">
+                    
+                        <div class="close_button"></div>
+						<div class="form_wrapper map"></div>
+												
+
+                    </div>
+                </div>
+      
+                <div class="city_select_search_wrapper _hide">
+                        <div class="cross_city_select"></div>                       
+                        <h4>Выберите город</h4>
+                             <div class="city_select_list">
+
+                           
+                        <button class="Red">ВЫБРАТЬ</button>
+                        </div>
+                        
+
+                    </div>
             </div>
         </header>
 
