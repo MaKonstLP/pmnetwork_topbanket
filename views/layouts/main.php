@@ -172,16 +172,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     </div>
                 </div>
-
-                <div class="header_form_popup header_form_popup_map _hide">
-                    <div class="header_form_popup_content">
-                    
-                        <div class="close_button"></div>
-						<div class="form_wrapper map"></div>
-												
-
-                    </div>
-                </div>
+                
+                <?= $this->render('../components/generic/popup_map.twig', ['type' => 'header']) ?>
       
                 <div class="city_select_search_wrapper _hide">
                         <div class="cross_city_select"></div>                       

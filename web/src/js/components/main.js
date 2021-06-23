@@ -2,13 +2,14 @@
 
 export default class Main{
 	constructor(){
+		
 		let self = this;
 		$('body').on('click', '[data-seo-control]', function(){
 			$(this).closest('[data-seo-text]').addClass('_active');
 		});
 		var fired = false;
 
-		window.addEventListener('click', () => {
+				window.addEventListener('click', () => {
 		    if (fired === false) {
 		        fired = true;
 	        	load_other();

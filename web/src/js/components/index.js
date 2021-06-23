@@ -1,6 +1,6 @@
 'use strict';
 import Filter from './filter';
-import YaMapAll from './map';
+
 
 export default class Index{
 	constructor($block){

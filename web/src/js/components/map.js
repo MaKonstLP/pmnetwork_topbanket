@@ -190,8 +190,6 @@ export default class YaMapAll{
 					      // Не скрывать метку при открытии балуна
 					      hideIconOnBalloonOpen: false,
 					    });
-
-
 				let serverData = null;
 				let data = {
 					subdomain_id : $('[data-map-api-subid]').data('map-api-subid'),

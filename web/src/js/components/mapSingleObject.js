@@ -74,7 +74,7 @@ export default class YaMapSingleObject{
     this.script('//api-maps.yandex.ru/2.1/?lang=ru_RU').then(() => {
         const ymaps = global.ymaps;
     		ymaps.ready(function(){
-    			let map = document.querySelector(".map");
+    			let map = document.querySelector(".mapSingle");
           let myMap = new ymaps.Map(map, {center: [55.76, 37.64], zoom: 15, controls: []},
                       {suppressMapOpenBlock: true});
 
@@ -104,9 +104,9 @@ export default class YaMapSingleObject{
           myMap.controls.add(zoomControl);
           myMap.controls.add(geolocationControl);
 
-          let objectCoordinates = [$("#map").attr("data-mapDotX"), $("#map").attr("data-mapDotY")];
-          let myBalloonHeader = $("#map").attr("data-name");
-          let myBalloonBody = $("#map").attr("data-address");
+          let objectCoordinates = [$("[data-page-type='item']").attr("data-item-lat"), $("[data-page-type='item']").attr("data-item-long")];
+          let myBalloonHeader = $("[data-page-type='item']").attr("data-item-name");
+          let myBalloonBody = $("[data-page-type='item']").attr("data-item-address");
           let myBalloonLayout = ymaps.templateLayoutFactory.createClass(
     				`<div class="balloon_layout _single_object">
     					<div class="arrow"></div>
@@ -125,7 +125,15 @@ export default class YaMapSingleObject{
             balloonContentHeader: myBalloonHeader,
             balloonContentBody: myBalloonBody
           }, {
-            iconColor: "green",
+            iconLayout: 'default#imageWithContent',
+            // Добавляем своё изображение иконки метки
+            iconImageHref: '/img/topbanket/map_icon.svg',
+            // Указываем размеры метки
+            iconImageSize: [40	, 50],
+            // Изменяем положение левого верхнего угла иконки относительно её точки привязки
+            iconImageOffset: [-20, -50],
+            // Не скрывать метку при открытии балуна
+
             balloonLayout: myBalloonLayout,
             hideIconOnBalloonOpen: false,
             balloonOffset: [-150, 17],

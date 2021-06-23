@@ -582,6 +582,7 @@ header {
   }
 }
 
+
 .header_form_popup {
   position: fixed;
   top: 0;
@@ -601,7 +602,7 @@ header {
 
   .header_form_popup_content {
     position: relative;
-    border-radius: 5px;
+ 
     z-index: 101;
     .close_button {
       position: absolute;
@@ -629,3 +630,44 @@ header {
     }
   }
 }
+
+
+.header_form_popup_map{
+
+  .header_form_popup_content{
+    width: 1031px;
+    height: 672px;
+    .form_wrapper_map {
+      height: 100%;
+      width: 100%;
+      padding: 44px 30px 30px 30px;
+  
+    }
+  }    
+  @include for-pad {
+    .header_form_popup_content{
+      width: 90%;
+      height: 90vh;
+      .form_wrapper_map {
+        height: 100%;
+        width: 100%;
+        padding: 30px 20px 20px 15px;
+    
+      }
+    }  
+  }
+  @include for-mobile{
+    .header_form_popup_content{
+      width: 90%;
+      height: 90vh;
+      .form_wrapper_map {
+        height: 100%;
+        width: 100%;
+        padding: 30px 20px 20px 15px;
+    
+      }
+    }  
+  }
+  
+}
+

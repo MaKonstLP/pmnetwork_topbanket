@@ -2,17 +2,16 @@
 import Swiper from 'swiper';
 import 'slick-carousel';
 import * as Lightbox from '../../../node_modules/lightbox2/dist/js/lightbox.js';
-
-
 import YaMapSingleObject from './mapSingleObject';
+import Filter from './filter';
 
 
 export default class Item{
 	constructor($item){
 		var self = this;
 		this.sliders = new Array();
-		this.YaMapSingleObject = new YaMapSingleObject();
-
+		this.filter = new Filter($('[data-filter-wrapper]'));
+		this.yaMap = new YaMapSingleObject();	
 		$('[data-action="show_phone"]').on("click", function(){
 			$(".object_book").addClass("_active");
 			$(".object_book_hidden").addClass("_active");
