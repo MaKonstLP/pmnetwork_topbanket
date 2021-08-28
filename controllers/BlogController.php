@@ -23,6 +23,7 @@ class BlogController extends Controller
 			throw new \yii\web\NotFoundHttpException();
 		}
 	  $query = BlogPost::findWithMedia()->with('blogPostTags')->where(['published' => true]);
+
 	  $dataProvider = new ActiveDataProvider([
 		  'query' => $query,
 		  'pagination' => [
@@ -38,6 +39,9 @@ class BlogController extends Controller
 
 	  $topPosts = (clone $query)->where(['featured' => true])->limit(5)->all();
 
+	  $postsPrew = BlogPost::findWithMedia()->with('blogPostTags')->where(['published' => true])->limit(6)->all();
+	// var_dump($postsPrew[0]->attributes);
+	// exit;
 	  $listConfig = [
 		  'dataProvider' => $dataProvider,
 		  'itemView' => '_list-item.twig',
@@ -54,7 +58,7 @@ class BlogController extends Controller
 
 	  ];
 	  
-	  return $this->render('index.twig', compact('listConfig', 'topPosts', 'seo'));
+	  return $this->render('index.twig', compact('listConfig', 'topPosts', 'seo', 'postsPrew'), $postsPrew);
 	}
 
 	public function actionPost($alias)
@@ -64,6 +68,7 @@ class BlogController extends Controller
 			throw new \yii\web\NotFoundHttpException();
 		}
 	  $post = BlogPost::findWithMedia()->with('blogPostTags')->where(['published' => true, 'alias' => $alias])->one();
+
 	  if(empty($post)) {
 		//   return new NotFoundHttpException();
 		throw new NotFoundHttpException();
@@ -75,6 +80,8 @@ class BlogController extends Controller
 
   public function actionPreview($id)
   {
+	//   echo 1;
+	//   exit;
 	  if(Yii::$app->params['subdomen_alias'] != ''){
 			throw new \yii\web\NotFoundHttpException();
 		}

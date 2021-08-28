@@ -21,54 +21,18 @@
 		</div>
 	</div>
 	<div class="blog_state_block">
+	{# {{postsPrew[0].attributes.name | raw}} #}
+	{% for posts in postsPrew %}
 		<div class="state_body" style="background: url(/img/topbanket/blog/block_state1.png); background-size: cover">
 			<div class="state_inner">
-				<div class="state_date"> 21 марта</div>
-				<div class="state_title"> Режиссура свадьбы: взаимодействие организатора и ведущего</div>
-				<div class="state_desc"> Режиссура на свадебном вечере — неотъемлемая часть даже для классического праздника</div>
-				<div class="White">Подробнее →</div>
+				<div class="state_date">{{posts.attributes.published_at}}</div>
+				<div class="state_title">{{posts.attributes.name}}</div>
+				<div class="state_desc">{{posts.attributes.short_intro}}</div>
+				<a href="http://top_banket.ru/blog/{{posts.attributes.alias}}/" class="White">Подробнее →</a>
 			</div>
 		</div>
-		<div class="state_body" style="background: url(/img/topbanket/blog/block_state2.png) ; background-size: cover">
-			<div class="state_inner">
-				<div class="state_date"> 2 марта</div>
-				<div class="state_title"> Как не ошибиться при выборе банкетного зала</div>
-				<div class="state_desc"> Режиссура на свадебном вечере — неотъемлемая часть даже для классического праздника</div>
-				<div class="White">Подробнее →</div>
-			</div>
-		</div>
-		<div class="state_body" style="background: url(/img/topbanket/blog/block_state3.png); background-size: cover">
-			<div class="state_inner">
-				<div class="state_date"> 2 марта</div>
-				<div class="state_title"> Качественно — не значит дорого: примеры удачной оптимизации бюджета</div>
-				<div class="state_desc"> Любой бюджет, выделенный на свадьбу, паре хочется расходовать максимально эффективно.</div>
-				<div class="White">Подробнее →</div>
-			</div>
-		</div>
-		<div class="state_body" style="background: url(/img/topbanket/blog/block_state4.png); background-size: cover">
-			<div class="state_inner">
-				<div class="state_date"> 21 марта</div>
-				<div class="state_title"> Режиссура свадьбы: взаимодействие организатора и ведущего</div>
-				<div class="state_desc"> Режиссура на свадебном вечере — неотъемлемая часть даже для классического праздника</div>
-				<div class="White">Подробнее →</div>
-			</div>
-		</div>
-		<div class="state_body" style="background: url(/img/topbanket/blog/block_state5.png); background-size: cover">
-			<div class="state_inner">
-				<div class="state_date"> 2 марта</div>
-				<div class="state_title"> Как не ошибиться при выборе банкетного зала</div>
-				<div class="state_desc"> Режиссура на свадебном вечере — неотъемлемая часть даже для классического праздника</div>
-				<div class="White">Подробнее →</div>
-			</div>
-		</div>
-		<div class="state_body" style="background: url(/img/topbanket/blog/block_state6.png); background-size: cover">
-			<div class="state_inner">
-				<div class="state_date"> 2 марта</div>
-				<div class="state_title"> Качественно — не значит дорого: примеры удачной оптимизации бюджета</div>
-				<div class="state_desc"> Любой бюджет, выделенный на свадьбу, паре хочется расходовать максимально эффективно.</div>
-				<div class="White">Подробнее →</div>
-			</div>
-		</div>
+	{% endfor %}
+	
 	</div>
 	<div class="state_btn_container">
 		<div class="state_load_btn">

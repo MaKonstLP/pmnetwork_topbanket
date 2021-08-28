@@ -34,6 +34,8 @@ class SiteController extends Controller
 
         $elastic_model = new ElasticItems;
         $items = new ItemsFilterElastic([], 10, 1, false, 'restaurants', $elastic_model);
+        // var_dump($elastic_model);
+        // exit;
         $mainWidget = $this->renderPartial('//components/generic/profitable_offer.twig', [
             'items' => $items->items,
             'city_rod' => Yii::$app->params['subdomen_rod'],
