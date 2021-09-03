@@ -129,6 +129,7 @@ class ListingController extends Controller
 		$main_flag = ($seo_type == 'listing' and count($params_filter) == 0);
 
 		return $this->render('index.twig', array(
+			// 'slices' => $this->slices_model,
 			'items' => $items->items,
 			'filter' => $filter,
 			'pagination' => $pagination,

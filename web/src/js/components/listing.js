@@ -2,26 +2,26 @@
 import Filter from './filter';
 import YaMapAll from './map';
 
-export default class Listing{
-	constructor($block){
+export default class Listing {
+	constructor($block) {
 		self = this;
 		this.block = $block;
 		this.filter = new Filter($('[data-filter-wrapper]'));
-		this.yaMap = new YaMapAll(this.filter);	
+		this.yaMap = new YaMapAll(this.filter);
 
 		//КЛИК ПО КНОПКЕ "ПОДОБРАТЬ"
-		$('[data-filter-button]').on('click', function(){
+		$('[data-filter-button]').on('click', function () {
 			self.reloadListing();
 		});
 
 		//КЛИК ПО ПАГИНАЦИИ
-		$('body').on('click', '[data-pagination-wrapper] [data-listing-pagitem]', function(){
+		$('body').on('click', '[data-pagination-wrapper] [data-listing-pagitem]', function () {
 			self.reloadListing($(this).data('page-id'));
 		});
 		console.log(this);
 	}
 
-	reloadListing(page = 1){
+	reloadListing(page = 1) {
 		let self = this;
 
 		self.block.addClass('_loading');
@@ -37,8 +37,8 @@ export default class Listing{
 				$('[data-listing-text-bottom]').html(response.text_bottom);
 				$('[data-pagination-wrapper]').html(response.pagination);
 				self.block.removeClass('_loading');
-				$('html,body').animate({scrollTop:$('.items_list').offset().top - 160}, 400);
-				history.pushState({}, '', '/ploshhadki/'+response.url);
+				$('html,body').animate({ scrollTop: $('.items_list').offset().top - 160 }, 400);
+				history.pushState({}, '', '/ploshhadki/' + response.url);
 			}
 		);
 	}
