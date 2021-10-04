@@ -27,9 +27,10 @@ window.$ = $;
 	    if ($('[data-page-type="item"]').length > 0) {
 				var item = new Item($('[data-page-type="item"]'));
 	    }
-
+			
 	    if ($('[data-page-type="index"]').length > 0) {
 	    	var index = new Index($('[data-page-type="index"]'));
+				console.log("123");
 	    }
 
 	    if ($('[data-widget-wrapper]').length > 0) {

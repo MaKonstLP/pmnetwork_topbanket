@@ -70,6 +70,10 @@ class ListingController extends Controller
 		unset($getQuery['q']);
 		if(count($getQuery) > 0){
 			$params = $this->parseGetQuery($getQuery, $this->filter_model, $this->slices_model);
+
+
+			// var_dump($params );
+			// exit;
 			$canonical = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 			if($params['page'] > 1){
 				$canonical .= $params['canonical'];
@@ -100,7 +104,8 @@ class ListingController extends Controller
 	{
 		$elastic_model = new ElasticItems;
 		$items = new ItemsFilterElastic($params_filter, $per_page, $page, false, 'restaurants', $elastic_model);
-
+		
+	
 		if($page > 1){
 			$seo['text_top'] = '';
 			$seo['text_bottom'] = '';
@@ -126,10 +131,13 @@ class ListingController extends Controller
 			$seo['text_bottom'] = '';
 		}
 
+		$slices_listing = Slices::find()->all();
+
+
 		$main_flag = ($seo_type == 'listing' and count($params_filter) == 0);
 
 		return $this->render('index.twig', array(
-			// 'slices' => $this->slices_model,
+			'slices' => $slices_listing,
 			'items' => $items->items,
 			'filter' => $filter,
 			'pagination' => $pagination,
@@ -177,7 +185,7 @@ class ListingController extends Controller
 		}
 
 		return  json_encode([
-			'listing' => $this->renderPartial('//components/generic/listing.twig', array(
+			'listing' => $this->renderPartial('//components/generic/profitable_offer.twig', array(
 				'items' => $items->items,
 				'img_alt' => $seo['img_alt'],
 			)),

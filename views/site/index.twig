@@ -15,7 +15,10 @@
 			<div class="popular_places_title">
 				<h3>Самые популярные места для банкетов в Москве</h3>
 			</div>
-			<div class="popular_places_ref_wrapper">
+
+			{{ this.render('//components/generic/slice.twig', {'slices':slices}) | raw }}
+			
+			{# <div class="popular_places_ref_wrapper">
 						<a class="pp" href="" style="background: url(/img/topbanket/pp1.png); background-size: cover">
 							<div class="pp_desc">Самые большие залы</div>
 						</a >
@@ -54,7 +57,7 @@
 								Рестораны на крыше 
 							</div>
 						</a >	
-			</div>	
+			</div>	 #}
 	</div>
 	<div class="DO_listing">
 			<div class="DO_listing_title">

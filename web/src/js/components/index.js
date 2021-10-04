@@ -7,13 +7,13 @@ export default class Index{
 		var self = this;
 		this.block = $block;
 		this.filter = new Filter($('[data-filter-wrapper]'));
-		this.yaMap = new YaMapAll(this.filter);
 
+		
 		//КЛИК ПО КНОПКЕ "ПОДОБРАТЬ"
 		$('[data-filter-button]').on('click', function(){
 			self.redirectToListing();
+			
 		});
-
 	}
 
 	redirectToListing(){
@@ -25,5 +25,6 @@ export default class Index{
 				window.location.href = response;
 			}
 		);
+		console.log('123');
 	}
 }
