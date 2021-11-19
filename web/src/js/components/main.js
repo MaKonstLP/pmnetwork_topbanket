@@ -43,6 +43,20 @@ export default class Main{
 			}, 100);
 		}
 		//console.log("конструктор");
+
+		
+		$('[data-action="city_checkbox"]').on('click',(e) => {
+			let $el = $(e.currentTarget);
+			let $input = $el.siblings('input');
+
+			if(!$(e.target).hasClass('_link')){
+				$('.city_checkbox').removeClass("_active");
+				$el.toggleClass("_active");
+				$('.city_select_btn').attr('href', `${$el.attr('data-href')}`);
+				$input.prop("checked", !$input.prop("checked"));
+				e.stopImmediatePropagation();
+			}	
+		});
 	}
 
 
@@ -118,6 +132,7 @@ export default class Main{
 			$('header').addClass('_active');
 		}
 	}
+	
 
 	closeBurgerHandler(e){
 		var $target = $(e.target);
@@ -132,6 +147,7 @@ export default class Main{
 		}
 
 	}
+
 
 	citySelectHandler(e){
 		var $target = $(e.target);

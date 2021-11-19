@@ -7,7 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
-use frontend\widgets\FilterWidget;
+use frontend\modules\top_banket\widgets\FilterWidget;
 use frontend\widgets\PaginationWidget;
 use frontend\components\ParamsFromQuery;
 use frontend\components\QueryFromSlice;
@@ -49,7 +49,7 @@ class ListingController extends Controller
 			if($params['page'] > 1){
 				$canonical .= $params['canonical'];
 			}
-
+		
 			return $this->actionListing(
 				$page 			=	$params['page'],
 				$per_page		=	$this->per_page,
@@ -102,6 +102,7 @@ class ListingController extends Controller
 
 	public function actionListing($page, $per_page, $params_filter, $breadcrumbs, $canonical, $type = false)
 	{
+
 		$elastic_model = new ElasticItems;
 		$items = new ItemsFilterElastic($params_filter, $per_page, $page, false, 'restaurants', $elastic_model);
 		
@@ -113,7 +114,8 @@ class ListingController extends Controller
 
 		$filter = FilterWidget::widget([
 			'filter_active' => $params_filter,
-			'filter_model' => $this->filter_model
+			'filter_model' => $this->filter_model,
+			'count' => $items->total,
 		]);
 
 		$pagination = PaginationWidget::widget([
@@ -144,7 +146,7 @@ class ListingController extends Controller
 			'seo' => $seo,
 			'count' => $items->total,
 			'menu' => $type,
-			'main_flag' => $main_flag
+			'main_flag' => $main_flag,
 		));	
 	}
 

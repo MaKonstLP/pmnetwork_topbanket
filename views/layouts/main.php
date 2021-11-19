@@ -88,13 +88,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                 function createCityNameLine($city){
                                     if($city->alias){
-                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://$city->alias.korporativ-ng.ru'>
+                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://$city->alias.top_banket.ru'>
                                                     <input type='checkbox' name='city' class='personalData' checked='' data-required>
                                                     <p class='checkbox_pseudo'>$city->name</p>
                                                     </div>";
                                     }
                                     else{
-                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://korporativ-ng.ru'>
+                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='top_banket.ru'>
                                                     <input type='checkbox' name='city' class='personalData' checked='' data-required>
                                                     <p class='checkbox_pseudo'>$city->name</p>
                                                     </div>";
@@ -130,7 +130,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                 createCityList($subdomen_list);
                             ?>
-                        <button class="Red">ВЫБРАТЬ</button>
+
+            <a href="https://samara.drnaprirode.ru/" class="Red city_select_btn">
+                                        <span>Выбрать</span>
+                                    </a>
+
+                        <!-- <button class="">ВЫБРАТЬ</button> -->
                         </div>
                         
 
@@ -175,18 +180,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 
                 <?= $this->render('../components/generic/popup_map.twig', ['type' => 'header']) ?>
       
-                <div class="city_select_search_wrapper _hide">
-                        <div class="cross_city_select"></div>                       
-                        <h4>Выберите город</h4>
+                <!-- <div class="city_select_search_wrapper _hide">
+                 
                              <div class="city_select_list">
 
                            
-                        <button class="Red">ВЫБРАТЬ</button>
+                      
                         </div>
                         
 
                     </div>
-            </div>
+            </div> -->
         </header>
 
         <div class="content_wrap">

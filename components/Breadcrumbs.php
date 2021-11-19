@@ -5,17 +5,17 @@ namespace frontend\modules\top_banket\components;
 use Yii;
 
 class Breadcrumbs {
-	public static function get_breadcrumbs($level) {
+	public static function get_breadcrumbs($level, $h1='') {
 		switch ($level) {
 			case 1:	
 				$breadcrumbs=[
-					'/' => 'Новый год '.(date("Y")+1),
+					'/' => 'Банкеты ',
 				];
 				break;
 			case 2:
 				$breadcrumbs=[
-					'/' => 'Новый год '.(date("Y")+1),
-					'/ploshhadki/' => 'Рестораны для корпоратива',
+					'/' => 'Банкеты ',
+					'/ploshhadki/' => $h1,
 				];
 				break;
 		}
